@@ -273,37 +273,23 @@ footer {
     color: #aaa;
 }
 
-@media (max-width: 768px) {
-    .header-content {
+@media (max-width: 768px) { /* Для мобильных устройств */
+    h1 {
+        font-size: 24px; /* Уменьшаем заголовок */
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
-    nav ul {
-        margin-top: 10px;
+    .social-links {
+        display: flex;
         justify-content: center;
-    }
-
-    nav ul li {
-        margin-left: 15px;
-    }
-
-    .products {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    footer .footer-content {
-        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 }
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    .product-card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
