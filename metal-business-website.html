@@ -8,29 +8,30 @@
 </head>
 <body>
 <header id="header">
-    <div class="container">
-        <div class="logo">
+    <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="logo" style="flex: 1; text-align: center;">
             Изделия из <span>металла</span>
         </div>
+        
+        <!-- Иконка Instagram с текстом -->
+        <div style="display: flex; align-items: center; gap: 40px;">
+    <div class="instagram-link">
+        <a href="https://www.instagram.com/nikolaichernak" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: black;">
+            <img src="https://i.postimg.cc/52LG5892/175701110-180088270621558-4811860667756367157-n.jpg" alt="Instagram" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+            <span>Следите за нами в Instagram</span>
+        </a>
+    </div>
 
-        <!-- Социальные сети -->
-        <div class="social-links">
-            <a href="https://www.instagram.com/nikolaichernak" target="_blank" class="social-link">
-                <img src="https://i.postimg.cc/52LG5892/175701110-180088270621558-4811860667756367157-n.jpg" alt="Instagram">
-                <span>Instagram</span>
-            </a>
-
-            <a href="https://www.youtube.com/channel/UCpt4EHBhBdVVWNrmfLK_gJA?ysclid=m8evur64c8903102475" target="_blank" class="social-link">
-                <img src="https://i.postimg.cc/LXPMJ5Cc/unnamed.jpg" alt="YouTube">
-                <span>YouTube</span>
-            </a>
-        </div>
-
-        <!-- Бургер-меню -->
-        <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
-
-        <nav id="nav-menu">
-            <ul>
+    <div class="youtube-link">
+        <a href="https://www.youtube.com/channel/UCpt4EHBhBdVVWNrmfLK_gJA?ysclid=m8evur64c8903102475" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: black;">
+            <img src="https://i.postimg.cc/LXPMJ5Cc/unnamed.jpg" alt="YouTube" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+            <span>Мы на YouTube</span>
+        </a>
+    </div>
+</div>
+        
+        <nav style="flex: 1; text-align: right;">
+            <ul style="display: flex; list-style: none; justify-content: flex-end;">
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#products">Продукция</a></li>
                 <li><a href="#about">О нас</a></li>
@@ -39,23 +40,22 @@
         </nav>
     </div>
 </header>
-
+	
 <script>
-    function toggleMenu() {
-        document.getElementById("nav-menu").classList.toggle("active");
-    }
-
     let lastScrollTop = 0;
     const header = document.getElementById("header");
 
     window.addEventListener("scroll", function() {
         let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
         if (currentScroll > lastScrollTop) {
-            header.style.top = "-100px"; 
+            // Скролл вниз — скрываем хеддер
+            header.style.top = "-100px"; // Задаем отрицательную высоту, чтобы скрыть
         } else {
-            header.style.top = "0";
+            // Скролл вверх — показываем хеддер
+            header.style.top = "0"; // Возвращаем на место
         }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
     });
 </script>
     
