@@ -2,63 +2,52 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Изделия из металла - Автомобильные пороги и металлоконструкции</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header id="header">
-    <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center;">
-        <div class="logo" style="flex: 1; text-align: center;">
-            Изделия из <span>металла</span>
+    <!-- Ваш HTML код -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo">Изделия из <span>металла</span></div>
+            <div class="instagram-link">
+                <a href="https://www.instagram.com/nikolaichernak" target="_blank">
+                    <img src="https://i.postimg.cc/52LG5892/175701110-180088270621558-4811860667756367157-n.jpg" alt="Instagram" width="40" height="40">
+                    <span>Следите за нами в Instagram</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#products">Продукция</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <!-- Иконка Instagram с текстом -->
-        <div style="display: flex; align-items: center; gap: 40px;">
-    <div class="instagram-link">
-        <a href="https://www.instagram.com/nikolaichernak" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: black;">
-            <img src="https://i.postimg.cc/52LG5892/175701110-180088270621558-4811860667756367157-n.jpg" alt="Instagram" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-            <span>Следите за нами в Instagram</span>
-        </a>
-    </div>
+    </header>
 
-    <div class="youtube-link">
-        <a href="https://www.youtube.com/channel/UCpt4EHBhBdVVWNrmfLK_gJA?ysclid=m8evur64c8903102475" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: black;">
-            <img src="https://i.postimg.cc/LXPMJ5Cc/unnamed.jpg" alt="YouTube" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-            <span>Мы на YouTube</span>
-        </a>
-    </div>
-</div>
-        
-        <nav style="flex: 1; text-align: right;">
-            <ul style="display: flex; list-style: none; justify-content: flex-end;">
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#products">Продукция</a></li>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <!-- Остальной контент страницы -->
 
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById("header");
 
-<script>
-    let lastScrollTop = 0;
-    const header = document.getElementById("header");
+        window.addEventListener("scroll", function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    window.addEventListener("scroll", function() {
-        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (currentScroll > lastScrollTop) {
-            // Скролл вниз — скрываем хеддер
-            header.style.top = "-100px"; // Задаем отрицательную высоту, чтобы скрыть
-        } else {
-            // Скролл вверх — показываем хеддер
-            header.style.top = "0"; // Возвращаем на место
-        }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
-    });
-</script>
+            if (currentScroll > lastScrollTop) {
+                // Скролл вниз — скрываем хеддер
+                header.classList.add("hidden");
+            } else {
+                // Скролл вверх — показываем хеддер
+                header.classList.remove("hidden");
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
+        });
+    </script>
+</body>
     
 <section id="info-section" style="padding: 100px 0 40px; background: url('https://i.postimg.cc/vTsQQGmQ/2af2b174ba322fc0c6ed386035a5c571.jpg') no-repeat center center/cover; color: white;">
     <div class="container" style="display: flex; justify-content: flex-start; align-items: center; width: 100%; max-width: 1200px;">
