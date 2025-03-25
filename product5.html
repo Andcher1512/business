@@ -7,68 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header id="header">
-    <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 80px;">
-        <!-- Логотип на месте текста "Изделия из металла" -->
-        <div class="logo" style="flex: 1; text-align: center;">
+<header id="header" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 70px; background-color: #333; color: white;">
+    <div class="container header-content" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+        <div class="logo" style="margin-bottom: 1px;">
             Изделия из <span>металла</span>
         </div>
-        
-        <!-- Иконки Instagram и YouTube -->
-        <div style="display: flex; align-items: center; gap: 20px;">
-            <div class="instagram-link">
-                <a href="https://www.instagram.com/nikolaichernak" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: black;">
-                    <img src="https://i.postimg.cc/52LG5892/175701110-180088270621558-4811860667756367157-n.jpg" alt="Instagram" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-                    <span>Следите за нами в Instagram</span>
-                </a>
-            </div>
-
-            <div class="youtube-link">
-                <a href="https://www.youtube.com/channel/UCpt4EHBhBdVVWNrmfLK_gJA?ysclid=m8evur64c8903102475" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: black;">
-                    <img src="https://i.postimg.cc/LXPMJ5Cc/unnamed.jpg" alt="YouTube" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-                    <span>Мы на YouTube</span>
-                </a>
-            </div>
-        </div>
-        
-        <nav style="flex: 1; text-align: left;">
-    <ul style="display: flex; list-style: none; justify-content: flex-start; align-items: center; margin: 0;">
-        <!-- Ссылка на главную страницу -->
-        <li><a href="metal-business-website.html" style="text-decoration: none; color: white; padding-right: 20px;">Главная</a></li>
-        
-        <!-- Логотип после "Главная" с увеличенным размером -->
-        <li>
-            <div class="logo-container">
-                <img src="https://i.postimg.cc/t4ZjYN2v/IMG-20210424-122933-805-1-1-1.png" alt="Логотип" style="height: 60px; width: auto; border: none;">
-            </div>
+        <li style="list-style: none; margin-top: 1px;">
+            <a href="metal-business-website.html" style="text-decoration: none; color: white;">Главная</a>
         </li>
-    </ul>
-</nav>
     </div>
 </header>
 
-<script>
-    // Скрипт для скрытия и появления хедера при прокрутке страницы
-    let lastScrollTop = 0;
-    const header = document.getElementById('header');
+<style>
+@media (max-width: 768px) {
+    .container.header-content {
+        flex-direction: column;
+    }
+    .logo {
+        margin-bottom: -5px; /* Еще меньше отступ */
+    }
+    li {
+        margin-top: -5px; /* Еще меньше отступ */
+    }
+}
+</style>
 
-    window.addEventListener('scroll', function() {
-        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        if (currentScroll > lastScrollTop) {
-            // Прокрутка вниз - скрыть хеддер
-            header.style.top = "-80px";
-        } else {
-            // Прокрутка вверх - показать хеддер
-            header.style.top = "0";
-        }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для предотвращения отрицательных значений
-    });
-</script>
+ <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Скролл вниз — скрываем хеддер
+                header.classList.add("hidden");
+            } else {
+                // Скролл вверх — показываем хеддер
+                header.classList.remove("hidden");
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
+        });
+    </script>
 
 <section id="product-details" style="padding: 50px 20px; text-align: center;">
     <div class="container">
-        <h2>Порог для автомобиля</h2>
-        <p>Качественный металлический порог для различных моделей автомобилей. Изготовлен из прочной оцинкованной стали.</p>
+        <h2>Пороги для VW Passat B3, B4</h2>
+        <p>Изготавливается полный (под резинку) либо неполный (первый загиб под дверь). Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
         <div class="product-gallery" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
             <img src="https://i.postimg.cc/MpQfnsYX/IMG-20210718-111551-996.jpg" alt="Порог 1" style="width: 300px; border-radius: 8px;">
             <img src="https://i.postimg.cc/76Dz8g0h/IMG-20210424-122933-805.jpg" alt="Порог 2" style="width: 300px; border-radius: 8px;">
@@ -80,10 +65,14 @@
 <section id="contact" style="padding: 50px 20px; background-color: #f8f9fa; text-align: center;">
     <div class="container">
         <h2>Свяжитесь с нами</h2>
-        <p>Звоните или пишите, чтобы заказать этот продукт.</p>
-        <p>📞 <a href="tel:+375295204367">+375 29 520-43-67</a></p>
-        <p>📞 <a href="tel:+375298239104">+375 29 823-91-04</a></p> 
-        <p>📧 Email: tschernak@mail.ru</p>
+        <p style="margin-bottom: 10px;">Звоните нам в любое время, чтобы уточнить график работы и стоимость изделий</p>
+        		<a href="tel:+375295204367" style="display: inline-block; padding: 10px 20px; background-color: #0a6e7a; color: #fff; border-radius: 5px; text-decoration: none; margin-bottom: 10px;">
+    📞 +375 29 520-43-67
+</a>
+<br>
+<a href="tel:+375298239104" style="display: inline-block; padding: 10px 20px; background-color: #0a6e7a; color: #fff; border-radius: 5px; text-decoration: none;">
+    📞 +375 29 823-91-04
+</a>
     </div>
 </section>
 
