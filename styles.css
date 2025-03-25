@@ -27,40 +27,56 @@ body {
     padding: 0 20px;
 }
 
-/* ======= ХЕДЕР ======= */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    transition: top 0.3s;
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
     z-index: 1000;
-    background-color: var(--primary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    flex-wrap: wrap;
 }
 
-.container.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
+/* Логотип */
 .logo {
-    flex: 1;
-    text-align: center;
     font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.instagram-link,
-.youtube-link {
+/* Навигация */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Ссылки на соцсети */
+.social-links {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -68,33 +84,58 @@ header {
 
 .instagram-link img,
 .youtube-link img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
-/* ======= МЕНЮ ======= */
-nav ul {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
+/* Гамбургер-меню */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-nav ul li {
-    margin-left: 20px;
+.menu-toggle span {
+    background: #fff;
+    height: 3px;
+    width: 30px;
+    margin: 5px 0;
+    display: block;
+    transition: 0.3s;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+/* Адаптивность */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
 
-nav ul li a:hover {
-    color: #f1f1f1;
+    nav {
+        display: none;
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    /* Открытие меню */
+    nav.open {
+        display: flex;
+    }
 }
 
 /* ======= ОБЩИЕ НАСТРОЙКИ ДЛЯ БЛОКОВ ======= */
