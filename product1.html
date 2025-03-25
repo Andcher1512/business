@@ -7,29 +7,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header id="header" style="display: flex; justify-content: center; align-items: center; height: 80px; background-color: #333; color: white;">
-    <div class="container header-content" style="display: flex; align-items: center; text-align: center;">
+<header id="header">
+    <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 80px;">
         <!-- Логотип на месте текста "Изделия из металла" -->
-        <div class="logo" style="margin-right: 20px;">
+        <div class="logo" style="flex: 1; text-align: center;">
             Изделия из <span>металла</span>
         </div>
         
-        <nav>
-            <ul style="display: flex; list-style: none; align-items: center; margin: 0; padding: 0;">
-                <!-- Ссылка на главную страницу -->
-                <li><a href="metal-business-website.html" style="text-decoration: none; color: white; padding: 0 20px;">Главная</a></li>
-                
-                <!-- Логотип после "Главная" -->
-                <li>
-                    <div class="logo-container">
-                        <img src="https://i.postimg.cc/t4ZjYN2v/IMG-20210424-122933-805-1-1-1.png" alt="Логотип" style="height: 60px; width: auto;">
-                    </div>
-                </li>
-            </ul>
-        </nav>
+        <nav style="flex: 1; text-align: left;">
+    <ul style="display: flex; list-style: none; justify-content: flex-start; align-items: center; margin: 0;">
+        <!-- Ссылка на главную страницу -->
+        <li><a href="metal-business-website.html" style="text-decoration: none; color: white; padding-right: 20px;">Главная</a></li>
+        
+        <!-- Логотип после "Главная" с увеличенным размером -->
+        <li>
+            <div class="logo-container">
+                <img src="https://i.postimg.cc/t4ZjYN2v/IMG-20210424-122933-805-1-1-1.png" alt="Логотип" style="height: 60px; width: auto; border: none;">
+            </div>
+        </li>
+    </ul>
+</nav>
     </div>
 </header>
-
 <script>
     // Скрипт для скрытия и появления хедера при прокрутке страницы
     let lastScrollTop = 0;
