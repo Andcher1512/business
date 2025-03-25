@@ -29,23 +29,23 @@
 </nav>
     </div>
 </header>
-<script>
-    // Скрипт для скрытия и появления хедера при прокрутке страницы
-    let lastScrollTop = 0;
-    const header = document.getElementById('header');
+ <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById("header");
 
-    window.addEventListener('scroll', function() {
-        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        if (currentScroll > lastScrollTop) {
-            // Прокрутка вниз - скрыть хеддер
-            header.style.top = "-80px";
-        } else {
-            // Прокрутка вверх - показать хеддер
-            header.style.top = "0";
-        }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для предотвращения отрицательных значений
-    });
-</script>
+        window.addEventListener("scroll", function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Скролл вниз — скрываем хеддер
+                header.classList.add("hidden");
+            } else {
+                // Скролл вверх — показываем хеддер
+                header.classList.remove("hidden");
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
+        });
+    </script>
 
 <section id="product-details" style="padding: 50px 20px; text-align: center;">
     <div class="container">
