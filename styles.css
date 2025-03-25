@@ -31,8 +31,15 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    transition: top 0.3s; /* Для плавного скрытия */
+    height: 80px;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
     z-index: 1000;
+    /* Убираем margin-bottom */
 }
 
 .header-content {
