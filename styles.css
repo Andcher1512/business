@@ -1,13 +1,11 @@
-/* Global Variables */
 :root {
-    --primary: #0a6e7a;
+    --primary: #c49b6b; /* Светлокоричневый цвет */
     --secondary: #e63946;
     --light: #f8f9fa;
     --dark: #212529;
     --gray: #6c757d;
 }
 
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -15,28 +13,25 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Body Styling */
 body {
     background-color: #f5f5f5;
     color: var(--dark);
     line-height: 1.6;
-    margin: 0;
+    padding-top: 20px;
 }
 
-/* Container Styling */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Header Styling */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 80px;
     background-color: var(--primary);
     color: white;
     display: flex;
@@ -44,11 +39,7 @@ header {
     justify-content: space-between;
     padding: 0 20px;
     z-index: 1000;
-    transition: top 0.3s ease-in-out;
-}
-
-header.hidden {
-    top: -70px; /* Hide header */
+    transition: height 0.3s;
 }
 
 .header-content {
@@ -59,11 +50,11 @@ header.hidden {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
 }
 
-logo span {
+.logo span {
     color: var(--secondary);
 }
 
@@ -87,12 +78,106 @@ nav ul li a:hover {
     color: #f1f1f1;
 }
 
-/* Section Styling */
 section {
     padding: 60px 0;
 }
 
-/* Product Cards */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#info-section .info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#info-section .info-title {
+    font-size: 30px;
+    line-height: 1.2;
+    font-family: 'Arial', sans-serif;
+    color: #e63946;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+#info-section .info-description {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: 700px;
+    margin-top: 30px;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    body {
+        padding-top: 0;
+    }
+
+    header {
+        height: 70px; /* Уменьшаем высоту хедера для мобильных устройств */
+        padding: 0 15px; /* Уменьшаем отступы */
+    }
+
+    .logo {
+        font-size: 24px; /* Уменьшаем размер шрифта */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .section-header h2 {
+        font-size: 28px; /* Уменьшаем размер шрифта для мобильных */
+    }
+
+    .section-header p {
+        font-size: 16px;
+    }
+
+    #info-section .info-title {
+        font-size: 24px; /* Уменьшаем размер шрифта */
+    }
+
+    #info-section .info-description {
+        font-size: 18px; /* Уменьшаем размер шрифта */
+    }
+}
+
+/* Для предотвращения масштабирования на мобильных устройствах */
+@viewport {
+    user-zoom: fixed;
+}
+
+/* Продукты */
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -111,7 +196,67 @@ section {
     transform: translateY(-10px);
 }
 
-/* Футер */
+.product-img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.product-info p {
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+/* Мобильные улучшения */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    header {
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin: 10px 0 0;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+
 footer {
     background-color: var(--dark);
     color: white;
@@ -127,11 +272,16 @@ footer {
 
 .footer-column h3 {
     font-size: 20px;
+    margin-bottom: 20px;
     color: var(--secondary);
 }
 
 .footer-column ul {
     list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
 }
 
 .footer-column ul li a {
@@ -143,87 +293,3 @@ footer {
 .footer-column ul li a:hover {
     color: white;
 }
-
-/* Медиа-запросы */
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    header {
-        height: 70px;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    .products {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        padding: 10px 15px;
-    }
-
-    .logo {
-        font-size: 22px;
-    }
-
-    /* Гамбургер-меню активируется */
-    .menu-toggle {
-        display: flex;
-    }
-
-    nav ul {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary);
-        flex-direction: column;
-        align-items: center;
-        display: none;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    /* Открываем меню */
-    nav ul.open {
-        display: flex;
-    }
-
-    .products {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    header {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 0;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-}
-
