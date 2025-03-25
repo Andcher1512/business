@@ -17,7 +17,7 @@ body {
     background-color: #f5f5f5;
     color: var(--dark);
     line-height: 1.6;
-    padding-top: 20px; /* Уменьшите отступ сверху */
+    padding-top: 20px;
 }
 
 .container {
@@ -42,6 +42,7 @@ header {
     justify-content: space-between;
     padding: 0 20px;
 }
+
 #info-section .info-container {
     display: flex;
     flex-direction: column;
@@ -51,20 +52,20 @@ header {
 }
 
 #info-section .info-title {
-    font-size: 30px; /* Размер шрифта */
-    line-height: 1.2; /* Уменьшенный интервал между строками */
-    font-family: 'Arial', sans-serif; /* Шрифт */
-    color: #e63946; /* Цвет текста */
-    font-weight: 700; /* Жирный шрифт */
-    text-transform: uppercase; /* Верхний регистр */
-    letter-spacing: 2px; /* Межбуквенное расстояние */
-    margin-bottom: 30px; /* Отступ снизу */
+    font-size: 30px;
+    line-height: 1.2;
+    font-family: 'Arial', sans-serif;
+    color: #e63946;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
 }
 
 #info-section .info-description {
-    font-size: 20px; /* Уменьшение размера шрифта */
-    line-height: 1.5; /* Стандартный межстрочный интервал */
-    font-weight: 400; /* Обычное начертание */
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 400;
     max-width: 700px;
     margin-top: 30px;
 }
@@ -145,10 +146,10 @@ section {
 }
 
 .product-img {
-    aspect-ratio: 1 / 1; /* Сохраняет квадратную форму */
-    width: 100%; /* Растяжение на всю ширину */
-    background-size: cover; /* Корректное масштабирование */
-    background-position: center; /* Центрирование изображения */
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .product-info {
@@ -274,8 +275,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* Контейнер и элементы внутри */
+    .container {
+        padding: 0 10px;
+    }
+
+    /* Хеддер: адаптация для мобильных */
     .header-content {
         flex-direction: column;
+        align-items: center;
     }
 
     nav ul {
@@ -287,24 +295,61 @@ footer {
         margin-left: 15px;
     }
 
+    /* Продукты: уменьшаем количество колонок */
     .products {
         grid-template-columns: 1fr 1fr;
     }
 
+    /* Секции */
+    .section-header h2 {
+        font-size: 28px;
+    }
+
+    .section-header p {
+        font-size: 16px;
+    }
+
+    /* Блок "о нас" */
     .about-content {
         grid-template-columns: 1fr;
     }
 
+    /* Контактные карты */
+    .contact-info {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Подвал */
     footer .footer-content {
         grid-template-columns: 1fr;
     }
-}
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
+
+    .about-img {
+        width: 100%;
     }
+
     .product-card {
         width: 100%;
         margin-bottom: 20px;
     }
+
+    .tag {
+        font-size: 12px;
+    }
+}
+
+/* Стили для очень маленьких экранов */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .section-header h2 {
+        font-size: 24px;
+    }
+
+    .section-header p {
+        font-size: 14px;
+    }
+}
 
