@@ -39,6 +39,7 @@ header {
     align-items: center;
     padding: 15px 20px;
     z-index: 1000;
+    gap: 30px; /* Увеличенное расстояние между объектами */
 }
 
 /* Логотип */
@@ -46,12 +47,15 @@ header {
     font-size: 1.5rem;
     font-weight: bold;
     text-transform: uppercase;
+    margin-right: 20px; /* Дополнительное расстояние */
 }
 
 /* Навигация */
 nav {
     display: flex;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 nav ul {
@@ -62,7 +66,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px; /* Увеличенные отступы между пунктами */
 }
 
 nav ul li a {
@@ -79,7 +83,8 @@ nav ul li a:hover {
 .social-links {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px; /* Увеличенное расстояние между иконками соцсетей */
+    margin-left: 20px;
 }
 
 .instagram-link img,
@@ -137,6 +142,7 @@ nav ul li a:hover {
         display: flex;
     }
 }
+
 
 /* ======= ОБЩИЕ НАСТРОЙКИ ДЛЯ БЛОКОВ ======= */
 section {
