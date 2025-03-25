@@ -7,32 +7,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header id="header">
-    <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 80px;">
-       <li>
-            <div class="logo-container">
-                <img src="https://i.postimg.cc/t4ZjYN2v/IMG-20210424-122933-805-1-1-1.png" alt="Логотип" style="height: 60px; width: auto; border: none;">
-            </div>
-        </li>
+<header id="header" style="display: flex; justify-content: center; align-items: center; height: 80px; background-color: #333; color: white;">
+    <div class="container header-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 20px;">
+        <!-- Логотип слева -->
+        <div class="logo-container" style="flex: 1; display: flex; justify-content: flex-start;">
+            <img src="https://i.postimg.cc/t4ZjYN2v/IMG-20210424-122933-805-1-1-1.png" alt="Логотип" style="height: 60px; width: auto;">
+        </div>
+        
+        <!-- Текст по центру -->
         <div class="logo" style="flex: 1; text-align: center;">
             Изделия из <span>металла</span>
         </div>
-
-        <nav style="flex: 1; text-align: left;">
-    <ul style="display: flex; list-style: none; justify-content: flex-start; align-items: center; margin: 0;">
-         
-        <li>
-            <div class="logo-container">
-                <img src="https://i.postimg.cc/t4ZjYN2v/IMG-20210424-122933-805-1-1-1.png" alt="Логотип" style="height: 60px; width: auto; border: none;">
-            </div>
-        </li>
-        <!-- Ссылка на главную страницу -->
-        <li><a href="metal-business-website.html" style="text-decoration: none; color: white; padding-right: 20px;">Главная</a></li>
         
-    </ul>
-</nav>
+        <!-- Навигация справа -->
+        <nav style="flex: 1; display: flex; justify-content: flex-end;">
+            <ul style="display: flex; list-style: none; align-items: center; margin: 0; padding: 0;">
+                <li><a href="metal-business-website.html" style="text-decoration: none; color: white; padding-left: 20px;">Главная</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
+
  <script>
         let lastScrollTop = 0;
         const header = document.getElementById("header");
