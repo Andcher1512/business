@@ -303,7 +303,40 @@ footer {
 .footer-column ul li a:hover {
     color: white;
 }
+.footer-nav {
+    position: fixed; /* Закрепляем внизу экрана */
+    bottom: 0;
+    width: 100%;
+    background-color: #222; /* Темный фон */
+    padding: 15px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
 
+.footer-nav nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-nav nav ul li {
+    margin: 0 15px;
+}
+
+.footer-nav nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+}
+
+.footer-nav .logo-container img {
+    height: 50px;
+    width: auto;
+}
 .copyright {
     text-align: center;
     padding-top: 20px;
