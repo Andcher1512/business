@@ -7,26 +7,48 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header id="header" style="display: flex; justify-content: center; align-items: center; height: 80px; background-color: #333; color: white;">
-    <div class="container header-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 20px;">
+<header id="header" style="display: flex; justify-content: center; align-items: center; height: 80px; background-color: transparent; color: inherit;">
+    <div class="container header-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; padding: 0 20px;">
         <!-- Логотип слева -->
         <div class="logo-container" style="flex: 1; display: flex; justify-content: flex-start;">
-            <img src="https://i.postimg.cc/t4ZjYN2v/IMG-20210424-122933-805-1-1-1.png" alt="Логотип" style="height: 60px; width: auto;">
+            <img src="https://i.postimg.cc/t4ZjYN2v/IMG-20210424-122933-805-1-1-1.png" alt="Логотип" style="height: 60px; width: auto; max-width: 100%;">
         </div>
         
         <!-- Текст по центру -->
-        <div class="logo" style="flex: 1; text-align: center;">
+        <div class="logo" style="flex: 1; text-align: center; font-size: 1.2em;">
             Изделия из <span>металла</span>
         </div>
         
         <!-- Навигация справа -->
         <nav style="flex: 1; display: flex; justify-content: flex-end;">
             <ul style="display: flex; list-style: none; align-items: center; margin: 0; padding: 0;">
-                <li><a href="metal-business-website.html" style="text-decoration: none; color: white; padding-left: 20px;">Главная</a></li>
+                <li><a href="metal-business-website.html" style="text-decoration: none; color: inherit; padding-left: 20px; font-size: 1em;">Главная</a></li>
             </ul>
         </nav>
     </div>
 </header>
+
+<style>
+@media (max-width: 768px) {
+    #header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    .container.header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .logo-container, .logo, nav {
+        flex: none;
+        margin-bottom: 10px;
+    }
+    nav ul {
+        justify-content: center;
+    }
+}
+</style>
+
 
  <script>
         let lastScrollTop = 0;
