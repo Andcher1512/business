@@ -1,5 +1,5 @@
-:root {
-    --primary: #0a6e7a;
+::root {
+    --primary: #c49b6b; 
     --secondary: #e63946;
     --light: #f8f9fa;
     --dark: #212529;
