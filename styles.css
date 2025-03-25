@@ -1,6 +1,4 @@
-/* Фиксация масштаба */
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+/* Global Variables */
 :root {
     --primary: #0a6e7a;
     --secondary: #e63946;
@@ -9,6 +7,7 @@
     --gray: #6c757d;
 }
 
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -16,48 +15,56 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Body Styling */
 body {
     background-color: #f5f5f5;
     color: var(--dark);
     line-height: 1.6;
-    overflow-x: hidden; /* Убираем горизонтальный скролл */
+    margin: 0;
 }
 
+/* Container Styling */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Хеддер */
+/* Header Styling */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: 70px;
     background-color: var(--primary);
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 0 20px;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: top 0.3s ease-in-out;
+}
+
+header.hidden {
+    top: -70px; /* Hide header */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .logo {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
 }
 
-.logo span {
+logo span {
     color: var(--secondary);
-}
-
-/* Навигация */
-nav {
-    display: flex;
-    align-items: center;
 }
 
 nav ul {
@@ -80,43 +87,12 @@ nav ul li a:hover {
     color: #f1f1f1;
 }
 
-/* Гамбургер-меню */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
-/* Контент */
+/* Section Styling */
 section {
-    padding: 100px 20px 80px;
+    padding: 60px 0;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-header h2 {
-    font-size: 36px;
-    color: var(--primary);
-}
-
-.section-header p {
-    color: var(--gray);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* Продукты */
+/* Product Cards */
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -133,27 +109,6 @@ section {
 
 .product-card:hover {
     transform: translateY(-10px);
-}
-
-.product-img {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-.product-info {
-    padding: 20px;
-}
-
-.product-info h3 {
-    font-size: 20px;
-    color: var(--primary);
-}
-
-.product-info p {
-    color: var(--gray);
-    margin-bottom: 15px;
 }
 
 /* Футер */
