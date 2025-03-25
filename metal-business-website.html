@@ -8,25 +8,39 @@
 </head>
 <body>
    
-   <header id="header">
-        <div class="container header-content">
-            <div class="logo">Изделия из <span>металла</span></div>
-            <div class="instagram-link">
-                <a href="https://www.instagram.com/nikolaichernak" target="_blank">
-                    <img src="https://i.postimg.cc/52LG5892/175701110-180088270621558-4811860667756367157-n.jpg" alt="Instagram" width="40" height="40">
-                    <span>Следите за нами в Instagram</span>
-                </a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#products">Продукция</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
+  <header id="header">
+    <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="logo" style="flex: 1; text-align: center;">
+            Изделия из <span>металла</span>
         </div>
-    </header>
+        
+        <!-- Иконка Instagram с текстом -->
+        <div style="display: flex; align-items: center; gap: 40px;">
+    <div class="instagram-link">
+        <a href="https://www.instagram.com/nikolaichernak" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: black;">
+            <img src="https://i.postimg.cc/52LG5892/175701110-180088270621558-4811860667756367157-n.jpg" alt="Instagram" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+            <span>Следите за нами в Instagram</span>
+        </a>
+    </div>
+
+    <div class="youtube-link">
+        <a href="https://www.youtube.com/channel/UCpt4EHBhBdVVWNrmfLK_gJA?ysclid=m8evur64c8903102475" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: black;">
+            <img src="https://i.postimg.cc/LXPMJ5Cc/unnamed.jpg" alt="YouTube" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+            <span>Мы на YouTube</span>
+        </a>
+    </div>
+</div>
+        
+        <nav style="flex: 1; text-align: right;">
+            <ul style="display: flex; list-style: none; justify-content: flex-end;">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#products">Продукция</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <script>
         let lastScrollTop = 0;
