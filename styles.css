@@ -126,15 +126,6 @@ section {
     justify-content: center; /* Выровнять текст по горизонтали */
 }
 
-.info-title {
-    font-size: 36px; /* Уменьшение размера шрифта */
-    font-family: 'Roboto', sans-serif; 
-    font-weight: 700; 
-    color: #e63946; 
-    margin-bottom: 10px; /* Уменьшение отступов */
-    line-height: 1.2; /* Уменьшение межстрочного интервала */
-    text-align: center; /* Текст будет по центру */
-}
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
