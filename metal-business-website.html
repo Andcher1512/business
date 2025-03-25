@@ -6,6 +6,15 @@
     <title>Изделия из металла - Автомобильные пороги и металлоконструкции</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+	<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+    });
+</script>
+
 <body>
 <header id="header">
     <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center;">
