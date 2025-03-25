@@ -180,16 +180,12 @@ section {
     font-size: 20px;
     line-height: 1.8;
     font-family: 'Lora', serif;
-    font-weight: 600; /* Более жирный шрифт */
-    color: #444; /* Темно-серый для мягкого контраста */
+    font-weight: 600; /* Сделаем текст чуть жирнее */
+    color: #005f9e; /* Темно-голубой цвет */
     max-width: 800px;
     margin: 0 auto 30px;
     text-align: center;
-    background: linear-gradient(to right, #e63946, #ff6b6b); /* Градиентный цвет */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
-
 .about-content {
     display: flex;
     flex-wrap: wrap;
