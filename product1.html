@@ -8,44 +8,43 @@
 </head>
 <body>
 <header id="header">
-    <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 60px;">
-        <div class="logo" style="flex: 1; text-align: center; font-size: 24px; font-weight: bold; color: black;">
+    <div class="container header-content" style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; height: 60px;">
+        <div class="logo">
             Изделия из <span>металла</span>
         </div>
-        <li style="list-style: none; margin-top: 10px;">
-            <a href="metal-business-website.html" class="main-link" style="text-decoration: none; color: white; background-color: #007BFF; padding: 5px 10px; border-radius: 5px;">Главная</a>
+        <li style="list-style: none;">
+            <a href="metal-business-website.html" class="main-link" style="text-decoration: none; color: white;">Главная</a>
         </li>
     </div>
 </header>
 
 <style>
-/* Стили для версии на компьютере */
-.header-content .logo {
-    font-family: Arial, sans-serif;
-    text-transform: uppercase;
+/* Стили для компьютерной версии */
+.container.header-content {
+    justify-content: center;
+    text-align: center;
 }
 
-.main-link {
-    font-family: Arial, sans-serif;
-    font-size: 18px;
+.logo {
+    font-size: 24px;
     font-weight: bold;
-    transition: background-color 0.3s ease-in-out;
+    color: black;
 }
 
-.main-link:hover {
-    background-color: #0056b3; /* Цвет при наведении мыши */
-}
-
-/* Мобильная версия */
+/* Медиазапросы для мобильной версии */
 @media (max-width: 768px) {
     .container.header-content {
-        flex-direction: column;
+        flex-direction: column; /* Вертикальное расположение */
         align-items: center;
     }
+
     .main-link {
-        margin-top: 15px;
+        margin-top: 15px; /* Отступ для ссылки "Главная" */
         font-size: 16px;
-        width: fit-content;
+        background-color: #007BFF; /* Цвет фона для выделения */
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
         text-align: center;
     }
 }
