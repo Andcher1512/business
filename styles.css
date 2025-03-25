@@ -1,3 +1,4 @@
+/* Фиксация масштаба */
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 :root {
@@ -19,10 +20,9 @@ body {
     background-color: #f5f5f5;
     color: var(--dark);
     line-height: 1.6;
-    overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
 }
 
-/* Контейнер */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -100,46 +100,6 @@ section {
     padding: 100px 20px 80px;
 }
 
-/* Медиа-запросы */
-@media (max-width: 768px) {
-    header {
-        padding: 10px 15px;
-    }
-
-    .logo {
-        font-size: 22px;
-    }
-
-    /* Гамбургер-меню активируется */
-    .menu-toggle {
-        display: flex;
-    }
-
-    nav ul {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary);
-        flex-direction: column;
-        align-items: center;
-        display: none;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    /* Открываем меню */
-    nav ul.open {
-        display: flex;
-    }
-}
-
-section {
-    padding: 60px 0;
-}
-
 .section-header {
     text-align: center;
     margin-bottom: 50px;
@@ -148,7 +108,6 @@ section {
 .section-header h2 {
     font-size: 36px;
     color: var(--primary);
-    margin-bottom: 15px;
 }
 
 .section-header p {
@@ -189,7 +148,6 @@ section {
 
 .product-info h3 {
     font-size: 20px;
-    margin-bottom: 10px;
     color: var(--primary);
 }
 
@@ -198,45 +156,7 @@ section {
     margin-bottom: 15px;
 }
 
-/* Мобильные улучшения */
-@media (max-width: 768px) {
-    body {
-        padding: 0;
-    }
-
-    header {
-        height: 60px;
-        padding: 0 10px;
-    }
-
-    .header-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        margin: 10px 0 0;
-    }
-
-    nav ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-
-    .container {
-        padding: 0 10px;
-    }
-
-    .products {
-        grid-template-columns: 1fr;
-    }
-}
-
+/* Футер */
 footer {
     background-color: var(--dark);
     color: white;
@@ -252,16 +172,11 @@ footer {
 
 .footer-column h3 {
     font-size: 20px;
-    margin-bottom: 20px;
     color: var(--secondary);
 }
 
 .footer-column ul {
     list-style: none;
-}
-
-.footer-column ul li {
-    margin-bottom: 10px;
 }
 
 .footer-column ul li a {
@@ -272,5 +187,88 @@ footer {
 
 .footer-column ul li a:hover {
     color: white;
+}
+
+/* Медиа-запросы */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    header {
+        height: 70px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    /* Гамбургер-меню активируется */
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    /* Открываем меню */
+    nav ul.open {
+        display: flex;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
 }
 
