@@ -25,22 +25,22 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 80px; 
+    transition: top 0.3s;
+    z-index: 1000;
+    margin-bottom: -10px;
     background-color: var(--primary);
     color: white;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 0 20px;
-    z-index: 1000;
-    /* Убираем margin-bottom */
-}
+ }
 
 .header-content {
     display: flex;
