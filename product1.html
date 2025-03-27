@@ -145,7 +145,22 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
         
 </section>
+    
+<style>
+    .contact-info a {
+        display: inline-block;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
 
+    /* Анимация при наведении на ПК */
+    @media (hover: hover) {
+        .contact-info a:hover {
+            transform: scale(1.1);
+            color: red !important;
+        }
+    }
+</style>
+    
 <section id="contact" style="padding: 50px 20px; background-color: #f8f9fa; text-align: center;">
     <div class="container">
         <h2>Свяжитесь с нами</h2>
