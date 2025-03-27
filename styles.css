@@ -317,17 +317,23 @@ h2, h3 {
 }
 
 /* Стили для значков телефонов */
-.fa-phone {
-    color: #5cb85c; /* Зеленый цвет значка телефона */
+.phone-icon {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #5cb85c; /* Зеленый фон для значка */
+    color: white;
+    border-radius: 5px;
     margin-right: 10px;
 }
 
 /* Стили для значка трубки под "Телефоны" */
-.fa-phone-square {
-    color: #5cb85c; /* Зеленый цвет значка трубки */
-    margin-left: 10px;
-    font-size: 1.5em;
+.phone-tube {
+    font-size: 2em;
+    color: #d9534f; /* Красный цвет трубки */
+    display: inline-block;
+    margin-right: 10px;
 }
+
 
 footer {
     background-color: var(--dark);
