@@ -173,14 +173,12 @@
 </style>
 
 <style>
-    .contact-info a, 
-    .contact-info p.email {
+    .contact-info a {
         display: inline-block;
         transition: transform 0.2s ease, color 0.2s ease;
     }
 
-    .contact-info a:hover, 
-    .contact-info p.email:hover {
+    .contact-info a:hover {
         transform: scale(1.1);
         color: red !important;
     }
@@ -209,7 +207,9 @@
             <div class="contact-card">
                 <i>📧</i>
                 <h3>Email</h3>
-                <p class="email">tschernak@mail.ru</p>
+                <a href="mailto:tschernak@mail.ru" style="text-decoration: none; color: inherit;">
+                    tschernak@mail.ru
+                </a>
             </div>
             
             <div class="contact-card">
@@ -230,7 +230,6 @@
         </div>
     </div>
 </section>
-
 
 <footer>
     <div class="container">
