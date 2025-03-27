@@ -162,11 +162,11 @@
 </section>
 
 <style>
-    .contact-info a, .contact-info p {
+    .contact-info a.phone, .contact-info p.email {
         transition: transform 0.2s ease, color 0.2s ease;
     }
 
-    .contact-info a:hover, .contact-info p:hover {
+    .contact-info a.phone:hover, .contact-info p.email:hover {
         transform: scale(1.1);
         color: red;
     }
@@ -183,11 +183,11 @@
             <div class="contact-card">
                 <i>📞</i>
                 <h3>Телефоны</h3>
-                <a href="tel:+375295204367" style="display: inline-block; padding: 10px 20px; background-color: #0a6e7a; color: #fff; border-radius: 5px; text-decoration: none; margin-bottom: 10px;">
+                <a href="tel:+375295204367" class="phone" style="display: inline-block; padding: 10px 20px; background-color: #0a6e7a; color: #fff; border-radius: 5px; text-decoration: none; margin-bottom: 10px;">
                     📱 +375 29 520-43-67
                 </a>
                 <br>
-                <a href="tel:+375298239104" style="display: inline-block; padding: 10px 20px; background-color: #0a6e7a; color: #fff; border-radius: 5px; text-decoration: none;">
+                <a href="tel:+375298239104" class="phone" style="display: inline-block; padding: 10px 20px; background-color: #0a6e7a; color: #fff; border-radius: 5px; text-decoration: none;">
                     📱 +375 29 823-91-04
                 </a>
             </div>
@@ -195,13 +195,15 @@
             <div class="contact-card">
                 <i>📧</i>
                 <h3>Email</h3>
-                <p>tschernak@mail.ru</p>
+                <p class="email">tschernak@mail.ru</p>
             </div>
             
             <div class="contact-card">
                 <i>📍</i>
                 <h3>Адрес</h3>
-                <p>ул. Центральная 115, д. Старое Село, Жабинковский район, Брестская область 225118, Беларусь</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=ул.+Центральная+115,+д.+Старое+Село,+Жабинковский+район,+Брестская+область+225118,+Беларусь" target="_blank" style="text-decoration: none; color: inherit;">
+                    <p>ул. Центральная 115, д. Старое Село, Жабинковский район, Брестская область 225118, Беларусь</p>
+                </a>
             </div>
             
             <div class="contact-card">
@@ -214,7 +216,6 @@
         </div>
     </div>
 </section>
-
 
 <footer>
     <div class="container">
