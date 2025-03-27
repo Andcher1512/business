@@ -172,6 +172,21 @@
     }
 </style>
 
+<style>
+    .contact-info a.phone, 
+    .contact-info p.email, 
+    .contact-info a.address {
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .contact-info a.phone:hover, 
+    .contact-info p.email:hover, 
+    .contact-info a.address:hover {
+        transform: scale(1.1);
+        color: red;
+    }
+</style>
+
 <section id="contact">
     <div class="container">
         <div class="section-header">
@@ -201,8 +216,8 @@
             <div class="contact-card">
                 <i>📍</i>
                 <h3>Адрес</h3>
-                <a href="https://www.google.com/maps/search/?api=1&query=ул.+Центральная+115,+д.+Старое+Село,+Жабинковский+район,+Брестская+область+225118,+Беларусь" target="_blank" style="text-decoration: none; color: inherit;">
-                    <p>ул. Центральная 115, д. Старое Село, Жабинковский район, Брестская область 225118, Беларусь</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=ул.+Центральная+115,+д.+Старое+Село,+Жабинковский+район,+Брестская+область+225118,+Беларусь" target="_blank" class="address" style="text-decoration: none; color: inherit;">
+                    ул. Центральная 115, д. Старое Село, Жабинковский район, Брестская область 225118, Беларусь
                 </a>
             </div>
             
@@ -216,6 +231,7 @@
         </div>
     </div>
 </section>
+
 
 <footer>
     <div class="container">
