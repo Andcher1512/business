@@ -157,13 +157,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeBtn = document.querySelector(".close");
     const prevBtn = document.querySelector(".prev");
     const nextBtn = document.querySelector(".next");
-    let currentIndex = 0;
+    let currentIndex = -1; // Начинаем с -1, чтобы модалка не открывалась автоматически
 
     function openLightbox(index) {
-        currentIndex = index;
-        lightboxImg.src = images[currentIndex].src;
-        lightbox.style.display = "flex";
-        document.body.style.overflow = "hidden"; // Запрещаем прокрутку страницы
+        if (index >= 0) { // Только если кликнули на изображение
+            currentIndex = index;
+            lightboxImg.src = images[currentIndex].src;
+            lightbox.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Блокируем прокрутку страницы
+        }
     }
 
     function closeLightbox() {
@@ -172,13 +174,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function showNext() {
-        currentIndex = (currentIndex + 1) % images.length;
-        lightboxImg.src = images[currentIndex].src;
+        if (currentIndex >= 0) {
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+        }
     }
 
     function showPrev() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        lightboxImg.src = images[currentIndex].src;
+        if (currentIndex >= 0) {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+        }
     }
 
     images.forEach((img, index) => {
@@ -202,6 +208,9 @@ document.addEventListener("DOMContentLoaded", function() {
             if (e.key === "Escape") closeLightbox();
         }
     });
+
+    // Убеждаемся, что модальное окно скрыто при загрузке
+    lightbox.style.display = "none";
 });
 </script>
 
