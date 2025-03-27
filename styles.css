@@ -313,7 +313,7 @@ section {
 .phone-btn {
     display: inline-block;
     padding: 12px 22px;
-    background-color: #28a745; /* Зеленый цвет */
+    background-color: #8B0000; /* Темно-красный (вишнёвый) */
     color: #fff;
     border-radius: 8px;
     text-decoration: none;
@@ -324,14 +324,14 @@ section {
 }
 
 .phone-btn:hover {
-    background-color: #218838; /* Темно-зеленый при наведении */
+    background-color: #a30000; /* Чуть светлее при наведении */
     transform: scale(1.05); /* Легкое увеличение */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .phone-btn:active {
     transform: scale(0.95); /* Легкое уменьшение при нажатии */
-    background-color: #1e7e34; /* Еще темнее при клике */
+    background-color: #6f0000; /* Еще темнее при клике */
 }
 
 footer {
