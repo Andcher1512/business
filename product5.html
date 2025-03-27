@@ -1,3 +1,7 @@
+
+    <img src="https://i.postimg.cc/J7F60YsF/IMG-20220630-121505-270.webp" alt="Порог 1" class="gallery-img">
+    <img src="https://i.postimg.cc/NFZpnLht/IMG-20220630-121505-288.webp" alt="Порог 2" class="gallery-img">
+    <img src="https://i.postimg.cc/Wzd5SgHS/IMG-20220630-121505-297.webp" alt="Порог 3" class="gallery-img">
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -50,22 +54,24 @@
         });
     </script>
 
-    </script>
-
 <section id="product-details" style="padding: 50px 20px; text-align: center;">
     <div class="container">
-        <h2>Пороги для Peugeot 806, Fiat Ulysse, Lancia Zeta, Citroen Evasion</h2>
-        <p>Одна сторона изготавливается из 3-ех частей. Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
+        <h2>Пороги для Renault Laguna I</h2>
+        <p>Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
         <div class="product-gallery">
     <img src="https://i.postimg.cc/J7F60YsF/IMG-20220630-121505-270.webp" alt="Порог 1" class="gallery-img">
     <img src="https://i.postimg.cc/NFZpnLht/IMG-20220630-121505-288.webp" alt="Порог 2" class="gallery-img">
     <img src="https://i.postimg.cc/Wzd5SgHS/IMG-20220630-121505-297.webp" alt="Порог 3" class="gallery-img">
-</div>
+        </div>
+    </div>
+</section>
 
 <!-- Модальное окно -->
 <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
     <img class="lightbox-content" id="lightbox-img">
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
 </div>
 
 <style>
@@ -91,22 +97,27 @@
 .lightbox {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 9999; /* Поднял z-index, чтобы окно всегда было поверх */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    position: fixed; /* Фиксированное положение, чтобы не скроллилось */
 }
 
 .lightbox-content {
     max-width: 90%;
     max-height: 80vh;
     border-radius: 10px;
+    object-fit: contain; /* Чтобы изображение не обрезалось */
 }
 
+/* Кнопка закрытия */
 .close {
     position: absolute;
     top: 15px;
@@ -119,51 +130,132 @@
 .close:hover {
     color: red;
 }
+
+/* Кнопки переключения */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".gallery-img");
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".close");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    let currentIndex = -1; // Начинаем с -1, чтобы модалка не открывалась автоматически
 
-    document.querySelectorAll(".gallery-img").forEach(img => {
-        img.addEventListener("click", function() {
+    function openLightbox(index) {
+        if (index >= 0) { // Только если кликнули на изображение
+            currentIndex = index;
+            lightboxImg.src = images[currentIndex].src;
             lightbox.style.display = "flex";
-            lightboxImg.src = this.src;
-        });
-    });
+            document.body.style.overflow = "hidden"; // Блокируем прокрутку страницы
+        }
+    }
 
-    closeBtn.addEventListener("click", function() {
+    function closeLightbox() {
         lightbox.style.display = "none";
+        document.body.style.overflow = ""; // Возвращаем прокрутку
+    }
+
+    function showNext() {
+        if (currentIndex >= 0) {
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+        }
+    }
+
+    function showPrev() {
+        if (currentIndex >= 0) {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+        }
+    }
+
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => openLightbox(index));
     });
 
-    lightbox.addEventListener("click", function(event) {
-        if (event.target === lightbox) {
-            lightbox.style.display = "none";
+    closeBtn.addEventListener("click", closeLightbox);
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
+
+    // Закрытие по клику вне изображения
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Переключение с клавиатуры
+    document.addEventListener("keydown", (e) => {
+        if (lightbox.style.display === "flex") {
+            if (e.key === "ArrowRight") showNext();
+            if (e.key === "ArrowLeft") showPrev();
+            if (e.key === "Escape") closeLightbox();
         }
     });
+
+    // Убеждаемся, что модальное окно скрыто при загрузке
+    lightbox.style.display = "none";
 });
 </script>
-        
-</section>
 
+</section>
+    
 <section id="contact" style="padding: 50px 20px; background-color: #f8f9fa; text-align: center;">
     <div class="container">
         <h2>Свяжитесь с нами</h2>
         <p style="margin-bottom: 10px;">Звоните нам в любое время, чтобы уточнить график работы и стоимость изделий</p>
-        		<a href="tel:+375295204367" style="display: inline-block; padding: 10px 20px; background-color: #d2b48c; color: #fff; border-radius: 5px; text-decoration: none; margin-bottom: 10px;">
-    📞 +375 29 520-43-67
-</a>
-<br>
-<a href="tel:+375298239104" style="display: inline-block; padding: 10px 20px; background-color: #d2b48c; color: #fff; border-radius: 5px; text-decoration: none;">
-    📞 +375 29 823-91-04
-</a>
+        
+        <a href="tel:+375295204367" class="phone-link">
+            📞 +375 29 520-43-67
+        </a>
+        <br>
+        <a href="tel:+375298239104" class="phone-link">
+            📞 +375 29 823-91-04
+        </a>
     </div>
 </section>
+
+<style>
+.phone-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d2b48c;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.phone-link:hover,
+.phone-link:active {
+    transform: scale(1.1); /* Увеличение на 10% при наведении или клике */
+}
+</style>
 
 <footer style="text-align: center; padding: 20px; background-color: #222; color: white;">
     <p>&copy; 2025 ИП Николай Николаевич Чернак. Все права защищены.</p>
 </footer>
 </body>
 </html>
+        
