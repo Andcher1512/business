@@ -274,13 +274,59 @@ section {
     text-transform: uppercase;
 }
 
-.contact-card p, 
 .contact-card a {
     font-size: 16px;
     color: var(--dark);
     font-weight: 500;
     text-decoration: none;
     transition: color 0.3s;
+}
+
+/* Общие стили для ссылки */
+.contact-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #5cb85c; /* Зеленый текст */
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Стили для ссылки на почту */
+.email-link {
+    color: #5cb85c; /* Зеленый текст */
+}
+
+/* Эффект при наведении */
+.contact-link:hover {
+    color: #d9534f; /* Красный текст при наведении */
+    background-color: #f7f7f7; /* Светлый фон при наведении */
+}
+
+/* Эффект при нажатии */
+.contact-link:active {
+    transform: scale(1.1); /* Увеличение при нажатии */
+    color: #d9534f; /* Красный текст при нажатии */
+}
+
+/* Стили для заголовков */
+h2, h3 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Тень для заголовков */
+}
+
+/* Стили для значков телефонов */
+.fa-phone {
+    color: #5cb85c; /* Зеленый цвет значка телефона */
+    margin-right: 10px;
+}
+
+/* Стили для значка трубки под "Телефоны" */
+.fa-phone-square {
+    color: #5cb85c; /* Зеленый цвет значка трубки */
+    margin-left: 10px;
+    font-size: 1.5em;
 }
 
 footer {
