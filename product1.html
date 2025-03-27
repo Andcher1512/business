@@ -55,15 +55,19 @@
         <h2>Пороги для Peugeot 806, Fiat Ulysse, Lancia Zeta, Citroen Evasion</h2>
         <p>Одна сторона изготавливается из 3-ех частей. Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
         <div class="product-gallery">
-    <img src="https://i.postimg.cc/FK3HLSR5/IMG-20210718-111552-028.jpg" alt="Порог 1" class="gallery-img">
-    <img src="https://i.postimg.cc/2SP5yGC7/IMG-20210718-111552-075.jpg" alt="Порог 2" class="gallery-img">
-    <img src="https://i.postimg.cc/SxXsm3bK/IMG-20210718-111552-106.jpg" alt="Порог 3" class="gallery-img">
-</div>
+            <img src="https://i.postimg.cc/FK3HLSR5/IMG-20210718-111552-028.jpg" alt="Порог 1" class="gallery-img">
+            <img src="https://i.postimg.cc/2SP5yGC7/IMG-20210718-111552-075.jpg" alt="Порог 2" class="gallery-img">
+            <img src="https://i.postimg.cc/SxXsm3bK/IMG-20210718-111552-106.jpg" alt="Порог 3" class="gallery-img">
+        </div>
+    </div>
+</section>
 
 <!-- Модальное окно -->
 <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
     <img class="lightbox-content" id="lightbox-img">
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
 </div>
 
 <style>
@@ -95,8 +99,11 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    position: relative;
 }
 
 .lightbox-content {
@@ -105,6 +112,7 @@
     border-radius: 10px;
 }
 
+/* Кнопка закрытия */
 .close {
     position: absolute;
     top: 15px;
@@ -117,28 +125,77 @@
 .close:hover {
     color: red;
 }
+
+/* Кнопки переключения */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    transform: translateY(-50%);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".gallery-img");
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".close");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    let currentIndex = 0;
 
-    document.querySelectorAll(".gallery-img").forEach(img => {
-        img.addEventListener("click", function() {
-            lightbox.style.display = "flex";
-            lightboxImg.src = this.src;
-        });
-    });
+    function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = images[currentIndex].src;
+        lightbox.style.display = "flex";
+    }
 
-    closeBtn.addEventListener("click", function() {
+    function closeLightbox() {
         lightbox.style.display = "none";
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+    }
+
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => openLightbox(index));
     });
 
-    lightbox.addEventListener("click", function(event) {
-        if (event.target === lightbox) {
-            lightbox.style.display = "none";
+    closeBtn.addEventListener("click", closeLightbox);
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
+
+    // Закрытие по клику вне изображения
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Переключение с клавиатуры
+    document.addEventListener("keydown", (e) => {
+        if (lightbox.style.display === "flex") {
+            if (e.key === "ArrowRight") showNext();
+            if (e.key === "ArrowLeft") showPrev();
+            if (e.key === "Escape") closeLightbox();
         }
     });
 });
