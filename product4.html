@@ -54,13 +54,97 @@
     <div class="container">
         <h2>Пороги для Peugeot 806, Fiat Ulysse, Lancia Zeta, Citroen Evasion</h2>
         <p>Одна сторона изготавливается из 3-ех частей. Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
-        <div class="product-gallery" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <img src="https://i.postimg.cc/HLZFKgQ3/IMG-20210427-112542-915.jpg" alt="Порог 1" style="width: 300px; border-radius: 8px;">
-            <img src="https://i.postimg.cc/pT34WJcF/IMG-20210427-112542-943.jpg" alt="Порог 2" style="width: 300px; border-radius: 8px;">
-            <img src="https://i.postimg.cc/gjR5nL1B/IMG-20210427-112542-989.jpg" alt="Порог 3" style="width: 300px; border-radius: 8px;">
-            <img src="https://i.postimg.cc/MK2NgtQk/IMG-20210427-112543-022.jpg" alt="Порог 3" style="width: 300px; border-radius: 8px;">
-        </div>
-    </div>
+        <div class="product-gallery">
+    <img src="https://i.postimg.cc/HLZFKgQ3/IMG-20210427-112542-915.jpg" alt="Порог 1" class="gallery-img">
+    <img src="https://i.postimg.cc/pT34WJcF/IMG-20210427-112542-943.jpg" alt="Порог 2" class="gallery-img">
+    <img src="https://i.postimg.cc/gjR5nL1B/IMG-20210427-112542-989.jpg" alt="Порог 3" class="gallery-img">
+    <img src="https://i.postimg.cc/MK2NgtQk/IMG-20210427-112543-022.jpg" alt="Порог 4" class="gallery-img">
+</div>
+
+<!-- Модальное окно -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<style>
+.product-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.gallery-img {
+    width: 300px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+/* Стили для модального окна */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".gallery-img").forEach(img => {
+        img.addEventListener("click", function() {
+            lightbox.style.display = "flex";
+            lightboxImg.src = this.src;
+        });
+    });
+
+    closeBtn.addEventListener("click", function() {
+        lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", function(event) {
+        if (event.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+    });
+});
+</script>
+
 </section>
 
 <section id="contact" style="padding: 50px 20px; background-color: #f8f9fa; text-align: center;">
