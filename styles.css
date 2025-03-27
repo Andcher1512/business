@@ -247,11 +247,11 @@ section {
 .contact-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.95)); /* Градиентный светлый фон */
     padding: 30px;
-    border-radius: 12px; /* Более плавные края */
+    border-radius: 12px; /* Плавные края */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(8px); /* Эффект размытия фона */
+    backdrop-filter: blur(8px); /* Эффект размытия */
 }
 
 .contact-card:hover {
@@ -274,7 +274,8 @@ section {
     text-transform: uppercase;
 }
 
-.contact-card p, .contact-card a {
+.contact-card p, 
+.contact-card a {
     font-size: 16px;
     color: var(--dark);
     font-weight: 500;
@@ -282,10 +283,38 @@ section {
     transition: color 0.3s;
 }
 
-.contact-card a:hover {
-    color: var(--secondary);
+/* Стили для телефонных номеров */
+.phone-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #ff4d4d; /* Светло-красный фон */
+    color: white; /* Белый цвет цифр */
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s;
 }
 
+.phone-btn:hover {
+    background: #e60000; /* Темнее при наведении */
+    transform: scale(1.05);
+}
+
+/* Стили для Email */
+.contact-card a[href^="mailto:"] {
+    transition: color 0.3s ease, background 0.3s ease;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.contact-card a[href^="mailto:"]:hover {
+    color: white; /* Белый текст при наведении */
+    background: red; /* Красный фон */
+    padding: 6px; /* Чуть больше отступ для выделения */
+}
+
+/* Кнопка контакта */
 .contact-btn {
     display: inline-block;
     padding: 12px 20px;
@@ -305,6 +334,7 @@ section {
     transform: scale(1.05);
 }
 
+/* Стиль для закрытых дней */
 .closed {
     color: var(--secondary);
     font-weight: bold;
