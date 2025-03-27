@@ -178,9 +178,12 @@
         transition: transform 0.2s ease, color 0.2s ease;
     }
 
-    .contact-info a:hover {
-        transform: scale(1.1);
-        color: red !important;
+    /* Анимация при наведении на ПК */
+    @media (hover: hover) {
+        .contact-info a:hover {
+            transform: scale(1.1);
+            color: red !important;
+        }
     }
 </style>
 
