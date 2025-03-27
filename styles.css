@@ -283,63 +283,6 @@ section {
     transition: color 0.3s;
 }
 
-/* Стили для телефонных номеров */
-.phone-btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #ff4d4d; /* Светло-красный фон */
-    color: white; /* Белый цвет цифр */
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s;
-}
-
-.phone-btn:hover {
-    background: #e60000; /* Темнее при наведении */
-    transform: scale(1.05);
-}
-
-/* Стили для Email */
-.contact-card a[href^="mailto:"] {
-    transition: color 0.3s ease, background 0.3s ease;
-    padding: 4px;
-    border-radius: 4px;
-}
-
-.contact-card a[href^="mailto:"]:hover {
-    color: white; /* Белый текст при наведении */
-    background: red; /* Красный фон */
-    padding: 6px; /* Чуть больше отступ для выделения */
-}
-
-/* Кнопка контакта */
-.contact-btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background: var(--primary);
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: background 0.3s ease, transform 0.2s;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-btn:hover {
-    background: var(--secondary);
-    transform: scale(1.05);
-}
-
-/* Стиль для закрытых дней */
-.closed {
-    color: var(--secondary);
-    font-weight: bold;
-}
-
 footer {
     background-color: var(--dark);
     color: white;
