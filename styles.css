@@ -282,59 +282,6 @@ section {
     transition: color 0.3s;
 }
 
-/* Общие стили для ссылки */
-.contact-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #5cb85c; /* Зеленый текст */
-    border-radius: 5px;
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: transform 0.2s ease, color 0.3s ease, background-color 0.3s ease;
-}
-
-/* Стили для ссылки на почту */
-.email-link {
-    color: #5cb85c; /* Зеленый текст */
-}
-
-/* Эффект при наведении */
-.contact-link:hover {
-    color: #d9534f; /* Красный текст при наведении */
-    background-color: #f7f7f7; /* Светлый фон при наведении */
-}
-
-/* Эффект при нажатии */
-.contact-link:active {
-    transform: scale(1.1); /* Увеличение при нажатии */
-    color: #d9534f; /* Красный текст при нажатии */
-}
-
-/* Стили для заголовков */
-h2, h3 {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Тень для заголовков */
-}
-
-/* Стили для значков телефонов */
-.phone-icon {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #5cb85c; /* Зеленый фон для значка */
-    color: white;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-/* Стили для значка трубки под "Телефоны" */
-.phone-tube {
-    font-size: 2em;
-    color: #d9534f; /* Красный цвет трубки */
-    display: inline-block;
-    margin-right: 10px;
-}
-
-
 footer {
     background-color: var(--dark);
     color: white;
