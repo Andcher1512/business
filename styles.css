@@ -310,42 +310,6 @@ section {
     font-weight: bold;
 }
 
-.phone-btn {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #8B0000; /* Темно-красный (вишнёвый) */
-    color: #fff; /* Белый текст */
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: max-content;
-}
-
-.phone-btn:hover {
-    background-color: #a30000; /* Чуть светлее при наведении */
-    transform: scale(1.05);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-.phone-btn:active {
-    transform: scale(0.95);
-    background-color: #6f0000;
-}
-
-/* Новый значок телефона */
-.contact-card i {
-    font-size: 28px;
-    color: #8B0000;
-}
-
-
 footer {
     background-color: var(--dark);
     color: white;
