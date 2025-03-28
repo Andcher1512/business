@@ -372,8 +372,9 @@ footer {
         align-items: center;
     }
 
+    /* Убираем текст вокруг иконок */
     .social-icons span {
-        display: none; /* Убираем текст вокруг иконок */
+        display: none; /* Убираем текст */
     }
 
     .social-icons img {
@@ -416,6 +417,7 @@ footer {
         font-size: 12px;
     }
 }
+
 
 
 
