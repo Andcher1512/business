@@ -180,111 +180,88 @@
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll(".gallery-img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".close");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-    let currentIndex = -1;
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll(".gallery-img");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const closeBtn = document.querySelector(".close");
+            const prevBtn = document.querySelector(".prev");
+            const nextBtn = document.querySelector(".next");
+            let currentIndex = -1;
 
-    let touchstartX = 0;
-    let touchendX = 0;
+            function openLightbox(index) {
+                if (index >= 0) {
+                    currentIndex = index;
+                    updateLightbox();
+                    lightbox.style.display = "flex";
+                    document.body.style.overflow = "hidden";
+                }
+            }
 
-    function openLightbox(index) {
-        if (index >= 0) {
-            currentIndex = index;
-            lightboxImg.src = images[currentIndex].src;
-            lightbox.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        }
-    }
+            function closeLightbox() {
+                lightbox.style.display = "none";
+                document.body.style.overflow = "";
+            }
 
-    function closeLightbox() {
-        lightbox.style.display = "none";
-        document.body.style.overflow = "";
-    }
+            function updateLightbox() {
+                images.forEach(img => img.style.transform = "scale(1)");
+                images.forEach(img => img.style.opacity = "0.7");
 
-    function changeImage(nextIndex, direction) {
-        if (currentIndex === nextIndex) return;
+                images[currentIndex].style.transform = "scale(1.2)";
+                images[currentIndex].style.opacity = "1";
 
-        const oldImg = lightboxImg.cloneNode();
-        lightbox.appendChild(oldImg);
-        oldImg.style.position = "absolute";
-        oldImg.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
+                lightboxImg.style.transition = "none";
+                lightboxImg.style.opacity = "0";
+                lightboxImg.src = images[currentIndex].src;
 
-        oldImg.style.transform = `translateX(${direction === "left" ? "-100%" : "100%"})`;
-        oldImg.style.opacity = "0";
+                setTimeout(() => {
+                    lightboxImg.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
+                    lightboxImg.style.transform = "scale(1)";
+                    lightboxImg.style.opacity = "1";
+                }, 50);
+            }
 
-        lightboxImg.src = images[nextIndex].src;
-        lightboxImg.style.transform = `translateX(${direction === "left" ? "100%" : "-100%"})`;
-        lightboxImg.style.opacity = "0";
+            function showNext() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateLightbox();
+            }
 
-        setTimeout(() => {
-            lightboxImg.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
-            lightboxImg.style.transform = "translateX(0)";
-            lightboxImg.style.opacity = "1";
-        }, 50);
+            function showPrev() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateLightbox();
+            }
 
-        setTimeout(() => {
-            oldImg.remove();
-        }, 500);
+            images.forEach((img, index) => {
+                img.addEventListener("click", () => openLightbox(index));
+            });
 
-        currentIndex = nextIndex;
-    }
+            closeBtn.addEventListener("click", closeLightbox);
+            nextBtn.addEventListener("click", showNext);
+            prevBtn.addEventListener("click", showPrev);
 
-    function showNext() {
-        let nextIndex = (currentIndex + 1) % images.length;
-        changeImage(nextIndex, "left");
-    }
+            document.addEventListener("keydown", (e) => {
+                if (lightbox.style.display === "flex") {
+                    if (e.key === "ArrowRight") showNext();
+                    if (e.key === "ArrowLeft") showPrev();
+                    if (e.key === "Escape") closeLightbox();
+                }
+            });
 
-    function showPrev() {
-        let prevIndex = (currentIndex - 1 + images.length) % images.length;
-        changeImage(prevIndex, "right");
-    }
+            let touchstartX = 0;
+            let touchendX = 0;
 
-    images.forEach((img, index) => {
-        img.addEventListener("click", () => openLightbox(index));
-    });
+            lightbox.addEventListener("touchstart", function (e) {
+                touchstartX = e.changedTouches[0].screenX;
+            });
 
-    closeBtn.addEventListener("click", closeLightbox);
-    nextBtn.addEventListener("click", showNext);
-    prevBtn.addEventListener("click", showPrev);
+            lightbox.addEventListener("touchend", function (e) {
+                touchendX = e.changedTouches[0].screenX;
+                if (touchendX < touchstartX - 50) showNext();
+                if (touchendX > touchstartX + 50) showPrev();
+            });
 
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener("keydown", (e) => {
-        if (lightbox.style.display === "flex") {
-            if (e.key === "ArrowRight") showNext();
-            if (e.key === "ArrowLeft") showPrev();
-            if (e.key === "Escape") closeLightbox();
-        }
-    });
-
-    lightbox.addEventListener("touchstart", function(e) {
-        touchstartX = e.changedTouches[0].screenX;
-    });
-
-    lightbox.addEventListener("touchend", function(e) {
-        touchendX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        if (touchendX < touchstartX - 50) {
-            showNext();
-        }
-        if (touchendX > touchstartX + 50) {
-            showPrev();
-        }
-    }
-
-    lightbox.style.display = "none";
-});
-
+            lightbox.style.display = "none";
+        });
 
 </script>
 
