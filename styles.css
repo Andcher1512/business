@@ -352,13 +352,23 @@ footer {
         text-align: center;
     }
 
+    .logo {
+        font-size: 22px; /* Уменьшаем размер логотипа */
+        text-align: center;
+    }
+
     nav ul {
         justify-content: center;
         margin-top: 10px;
+        padding-left: 0;
     }
 
     nav ul li {
         margin-left: 15px;
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Уменьшаем размер шрифта для ссылок */
     }
 
     .social-media {
@@ -394,15 +404,20 @@ footer {
 /* Адаптивность для экранов до 480px */
 @media (max-width: 480px) {
     .logo {
-        font-size: 24px;
+        font-size: 20px; /* Еще меньше для маленьких экранов */
     }
 
     nav ul li a {
-        font-size: 14px;
+        font-size: 12px; /* Снижаем размер шрифта для ссылок */
     }
 
     .social-icon img {
-        width: 20px; /* Уменьшаем иконки еще больше */
-        height: 20px;
+        width: 25px; /* Уменьшаем размер иконок */
+        height: 25px;
+    }
+
+    .header-content {
+        padding: 10px 20px;
     }
 }
+
