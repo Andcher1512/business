@@ -347,7 +347,11 @@ footer {
     nav ul li {
         margin-left: 15px;
     }
-
+    
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     .social-media {
         margin-top: 10px;
     }
