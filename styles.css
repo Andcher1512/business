@@ -360,24 +360,19 @@ footer {
         margin-bottom: 10px;
     }
 
-    .social-icons {
+    .social-media {
         display: flex;
         gap: 15px;
         order: 2;
         margin-top: 10px;
     }
 
-    .social-icons a {
-        display: flex;
-        align-items: center;
-    }
-
     /* Убираем текст вокруг иконок */
-    .social-icons span {
+    .social-media span {
         display: none; /* Убираем текст */
     }
 
-    .social-icons img {
+    .social-icon img {
         width: 35px;
         height: 35px;
         border-radius: 50%;
@@ -401,7 +396,7 @@ footer {
         font-size: 18px;
     }
 
-    .social-icons img {
+    .social-icon img {
         width: 30px;
         height: 30px;
     }
@@ -417,6 +412,7 @@ footer {
         font-size: 12px;
     }
 }
+
 
 
 
