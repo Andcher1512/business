@@ -352,10 +352,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .contact-info {
-        grid-template-columns: repeat(2, 1fr); /* Два столбца на мобильных */
-    }
-    
     .social-media {
         margin-top: 10px;
     }
