@@ -90,13 +90,13 @@
     transform: scale(1.05);
 }
 
-/* Для анимации перемещения изображения */
 .lightbox-content {
     max-width: 90%;
     max-height: 80vh;
     border-radius: 10px;
     object-fit: contain;
-    transition: transform 0.5s ease; /* Добавляем плавное перемещение */
+    position: absolute;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .lightbox {
@@ -112,11 +112,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
     position: fixed;
-}
-
-.prev, .next {
-    display: block; /* Показываем стрелки только на десктопе */
 }
 
 /* Скрыть стрелки на мобильных устройствах */
@@ -124,6 +121,10 @@
     .prev, .next {
         display: none;
     }
+}
+
+.prev, .next {
+    display: block; /* Показываем стрелки только на десктопе */
 }
 
 /* Кнопка закрытия */
@@ -170,59 +171,64 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeBtn = document.querySelector(".close");
     const prevBtn = document.querySelector(".prev");
     const nextBtn = document.querySelector(".next");
-    let currentIndex = -1; // Начинаем с -1, чтобы модалка не открывалась автоматически
+    let currentIndex = -1;
 
     let touchstartX = 0;
     let touchendX = 0;
 
     function openLightbox(index) {
-        if (index >= 0) { // Только если кликнули на изображение
+        if (index >= 0) {
             currentIndex = index;
             lightboxImg.src = images[currentIndex].src;
             lightbox.style.display = "flex";
-            document.body.style.overflow = "hidden"; // Блокируем прокрутку страницы
+            document.body.style.overflow = "hidden";
         }
     }
 
     function closeLightbox() {
         lightbox.style.display = "none";
-        document.body.style.overflow = ""; // Возвращаем прокрутку
+        document.body.style.overflow = "";
+    }
+
+    function changeImage(nextIndex, direction) {
+        if (currentIndex === nextIndex) return;
+
+        const oldImg = lightboxImg.cloneNode(); // Копируем старое изображение
+        lightbox.appendChild(oldImg); // Добавляем в lightbox перед заменой
+        oldImg.style.position = "absolute"; // Делаем независимым
+        oldImg.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
+
+        // Определяем сторону ухода текущего изображения
+        oldImg.style.transform = `translateX(${direction === "left" ? "-100%" : "100%"})`;
+        oldImg.style.opacity = "0";
+
+        // Добавляем новое изображение с противоположной стороны
+        lightboxImg.src = images[nextIndex].src;
+        lightboxImg.style.transform = `translateX(${direction === "left" ? "100%" : "-100%"})`;
+        lightboxImg.style.opacity = "0";
+
+        setTimeout(() => {
+            lightboxImg.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
+            lightboxImg.style.transform = "translateX(0)";
+            lightboxImg.style.opacity = "1";
+        }, 50);
+
+        // Удаляем старое изображение после завершения анимации
+        setTimeout(() => {
+            oldImg.remove();
+        }, 500);
+
+        currentIndex = nextIndex;
     }
 
     function showNext() {
-        if (currentIndex >= 0) {
-            // Добавляем эффект перемещения изображения вправо
-            lightboxImg.style.transition = 'transform 0.5s ease'; // Плавное перемещение
-            lightboxImg.style.transform = 'translateX(100%)'; // Перемещаем вправо
-
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % images.length; // Переходим к следующей картинке
-                lightboxImg.src = images[currentIndex].src; // Меняем источник изображения
-                lightboxImg.style.transform = 'translateX(-100%)'; // Начинаем сдвигать новое изображение
-                setTimeout(() => {
-                    lightboxImg.style.transition = 'transform 0.5s ease'; // Плавно вернем в исходное положение
-                    lightboxImg.style.transform = 'translateX(0)'; // Возвращаем картинку на место
-                }, 20); // Задержка перед анимацией для нового изображения
-            }, 500); // Задержка для завершения анимации
-        }
+        let nextIndex = (currentIndex + 1) % images.length;
+        changeImage(nextIndex, "left"); // Уход влево, новое появляется справа
     }
 
     function showPrev() {
-        if (currentIndex >= 0) {
-            // Добавляем эффект перемещения изображения влево
-            lightboxImg.style.transition = 'transform 0.5s ease'; // Плавное перемещение
-            lightboxImg.style.transform = 'translateX(-100%)'; // Перемещаем влево
-
-            setTimeout(() => {
-                currentIndex = (currentIndex - 1 + images.length) % images.length; // Переходим к предыдущей картинке
-                lightboxImg.src = images[currentIndex].src; // Меняем источник изображения
-                lightboxImg.style.transform = 'translateX(100%)'; // Начинаем сдвигать новое изображение
-                setTimeout(() => {
-                    lightboxImg.style.transition = 'transform 0.5s ease'; // Плавно вернем в исходное положение
-                    lightboxImg.style.transform = 'translateX(0)'; // Возвращаем картинку на место
-                }, 20); // Задержка перед анимацией для нового изображения
-            }, 500); // Задержка для завершения анимации
-        }
+        let prevIndex = (currentIndex - 1 + images.length) % images.length;
+        changeImage(prevIndex, "right"); // Уход вправо, новое появляется слева
     }
 
     images.forEach((img, index) => {
@@ -247,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Добавляем поддержку свайпов на мобильных устройствах
+    // Поддержка свайпов на мобильных устройствах
     lightbox.addEventListener("touchstart", function(e) {
         touchstartX = e.changedTouches[0].screenX;
     });
@@ -258,15 +264,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function handleSwipe() {
-        if (touchendX < touchstartX) {
-            showNext(); // Свайп влево
+        if (touchendX < touchstartX - 50) {
+            showNext(); // Свайп влево → следующее изображение
         }
-        if (touchendX > touchstartX) {
-            showPrev(); // Свайп вправо
+        if (touchendX > touchstartX + 50) {
+            showPrev(); // Свайп вправо → предыдущее изображение
         }
     }
 
-    // Убеждаемся, что модальное окно скрыто при загрузке
     lightbox.style.display = "none";
 });
 
