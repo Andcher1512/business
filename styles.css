@@ -350,19 +350,21 @@ footer {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 10px 0;
+        padding: 20px 0;
+        position: relative; /* Чтобы разместить иконки по бокам */
     }
 
     /* Логотип */
     .logo {
         font-size: 22px;
         text-align: center;
-        margin-bottom: 10px; /* Добавляем отступ снизу */
+        margin-bottom: 10px; /* Отступ снизу */
+        width: 100%;
     }
 
     /* Социальные иконки (Instagram и YouTube) */
     .social-media {
-        position: absolute; /* Чтобы расположить их по бокам */
+        position: absolute;
         top: 20px;
         left: 10px;
         right: 10px;
@@ -373,7 +375,7 @@ footer {
     }
 
     .social-icon img {
-        width: 30px; /* Уменьшаем размер иконок */
+        width: 30px; /* Размер иконок */
         height: 30px;
         border-radius: 50%;
     }
@@ -383,9 +385,12 @@ footer {
         display: flex;
         justify-content: center;
         gap: 20px; /* Отступы между пунктами меню */
-        margin-top: 20px; /* Добавляем отступ сверху */
+        margin-top: 40px; /* Отступ сверху */
         padding: 0;
         list-style: none;
+        flex-wrap: wrap; /* Размещение в несколько строк, если не помещается */
+        justify-content: space-evenly; /* Равномерное распределение */
+        width: 100%;
     }
 
     nav ul li a {
@@ -394,13 +399,16 @@ footer {
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s;
+        display: block;
+        text-align: center;
+        width: 100%; /* Для лучшего распределения по строкам */
     }
 
     nav ul li a:hover {
         color: #f1f1f1;
     }
 
-    /* Скрываем текст Instagram и YouTube */
+    /* Убираем текст Instagram и YouTube */
     .instagram-link span,
     .youtube-link span {
         display: none;
@@ -421,6 +429,9 @@ footer {
         width: 25px; /* Уменьшаем размер иконок */
         height: 25px;
     }
-}
 
+    .header-content {
+        padding: 10px 20px;
+    }
+}
 
