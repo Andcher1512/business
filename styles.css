@@ -99,23 +99,32 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 60px 0;
+    padding: 40px 0; /* Уменьшаем отступы сверху и снизу */
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Уменьшаем отступ снизу */
 }
 
 .section-header h2 {
-    font-size: 36px;
+    font-size: 32px; /* Можно немного уменьшить размер заголовка */
     color: var(--primary);
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Уменьшаем расстояние между заголовком и параграфом */
 }
 
 .section-header p {
     color: var(--gray);
     max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 5px; /* Минимальный отступ для равномерности */
+}
+
+/* Уменьшаем отступы вокруг карты */
+#map-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 450px; /* Можно сделать карту чуть ниже */
     margin: 0 auto;
 }
 
