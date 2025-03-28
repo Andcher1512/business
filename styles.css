@@ -352,6 +352,10 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    .contact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     .social-media {
         margin-top: 10px;
     }
