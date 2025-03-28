@@ -90,11 +90,19 @@
     transform: scale(1.05);
 }
 
-/* Стили для модального окна */
+/* Для анимации перемещения изображения */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    object-fit: contain;
+    transition: transform 0.5s ease; /* Добавляем плавное перемещение */
+}
+
 .lightbox {
     display: none;
     position: fixed;
-    z-index: 9999; /* Поднял z-index, чтобы окно всегда было поверх */
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
@@ -104,16 +112,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: fixed; /* Фиксированное положение, чтобы не скроллилось */
+    position: fixed;
 }
 
-/* Для анимации перемещения изображения */
-.lightbox-content {
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 10px;
-    object-fit: contain; /* Чтобы изображение не обрезалось */
-    transition: transform 0.5s ease; /* Добавляем плавное перемещение */
+.prev, .next {
+    display: block; /* Показываем стрелки только на десктопе */
+}
+
+/* Скрыть стрелки на мобильных устройствах */
+@media (max-width: 768px) {
+    .prev, .next {
+        display: none;
+    }
 }
 
 /* Кнопка закрытия */
@@ -188,7 +198,11 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 currentIndex = (currentIndex + 1) % images.length; // Переходим к следующей картинке
                 lightboxImg.src = images[currentIndex].src; // Меняем источник изображения
-                lightboxImg.style.transform = 'translateX(0)'; // Возвращаем картинку в исходное положение
+                lightboxImg.style.transform = 'translateX(-100%)'; // Начинаем сдвигать новое изображение
+                setTimeout(() => {
+                    lightboxImg.style.transition = 'transform 0.5s ease'; // Плавно вернем в исходное положение
+                    lightboxImg.style.transform = 'translateX(0)'; // Возвращаем картинку на место
+                }, 20); // Задержка перед анимацией для нового изображения
             }, 500); // Задержка для завершения анимации
         }
     }
@@ -202,7 +216,11 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 currentIndex = (currentIndex - 1 + images.length) % images.length; // Переходим к предыдущей картинке
                 lightboxImg.src = images[currentIndex].src; // Меняем источник изображения
-                lightboxImg.style.transform = 'translateX(0)'; // Возвращаем картинку в исходное положение
+                lightboxImg.style.transform = 'translateX(100%)'; // Начинаем сдвигать новое изображение
+                setTimeout(() => {
+                    lightboxImg.style.transition = 'transform 0.5s ease'; // Плавно вернем в исходное положение
+                    lightboxImg.style.transform = 'translateX(0)'; // Возвращаем картинку на место
+                }, 20); // Задержка перед анимацией для нового изображения
             }, 500); // Задержка для завершения анимации
         }
     }
