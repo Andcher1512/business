@@ -107,11 +107,13 @@
     position: fixed; /* Фиксированное положение, чтобы не скроллилось */
 }
 
+/* Для анимации перемещения изображения */
 .lightbox-content {
     max-width: 90%;
     max-height: 80vh;
     border-radius: 10px;
     object-fit: contain; /* Чтобы изображение не обрезалось */
+    transition: transform 0.5s ease; /* Добавляем плавное перемещение */
 }
 
 /* Кнопка закрытия */
@@ -179,15 +181,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function showNext() {
         if (currentIndex >= 0) {
-            currentIndex = (currentIndex + 1) % images.length;
-            lightboxImg.src = images[currentIndex].src;
+            // Добавляем эффект перемещения изображения вправо
+            lightboxImg.style.transition = 'transform 0.5s ease'; // Плавное перемещение
+            lightboxImg.style.transform = 'translateX(100%)'; // Перемещаем вправо
+
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % images.length; // Переходим к следующей картинке
+                lightboxImg.src = images[currentIndex].src; // Меняем источник изображения
+                lightboxImg.style.transform = 'translateX(0)'; // Возвращаем картинку в исходное положение
+            }, 500); // Задержка для завершения анимации
         }
     }
 
     function showPrev() {
         if (currentIndex >= 0) {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            lightboxImg.src = images[currentIndex].src;
+            // Добавляем эффект перемещения изображения влево
+            lightboxImg.style.transition = 'transform 0.5s ease'; // Плавное перемещение
+            lightboxImg.style.transform = 'translateX(-100%)'; // Перемещаем влево
+
+            setTimeout(() => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length; // Переходим к предыдущей картинке
+                lightboxImg.src = images[currentIndex].src; // Меняем источник изображения
+                lightboxImg.style.transform = 'translateX(0)'; // Возвращаем картинку в исходное положение
+            }, 500); // Задержка для завершения анимации
         }
     }
 
@@ -235,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Убеждаемся, что модальное окно скрыто при загрузке
     lightbox.style.display = "none";
 });
+
 </script>
 
 </section>
