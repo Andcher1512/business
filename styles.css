@@ -350,54 +350,60 @@ footer {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 10px 0;
     }
 
+    /* Логотип */
     .logo {
-        font-size: 22px; /* Уменьшаем размер логотипа */
+        font-size: 22px;
         text-align: center;
+        margin-bottom: 10px; /* Добавляем отступ снизу */
     }
 
-    nav ul {
-        justify-content: center;
-        margin-top: 10px;
-        padding-left: 0;
-    }
-
-    nav ul li {
-        margin-left: 15px;
-    }
-
-    nav ul li a {
-        font-size: 14px; /* Уменьшаем размер шрифта для ссылок */
-    }
-
+    /* Социальные иконки (Instagram и YouTube) */
     .social-media {
-        margin-top: 10px;
+        position: absolute; /* Чтобы расположить их по бокам */
+        top: 20px;
+        left: 10px;
+        right: 10px;
         display: flex;
-        gap: 20px; /* Уменьшаем отступ между иконками */
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
     }
 
     .social-icon img {
         width: 30px; /* Уменьшаем размер иконок */
         height: 30px;
+        border-radius: 50%;
     }
 
-    /* Убираем текст на мобильных для Instagram и YouTube */
+    /* Ссылки в навигации */
+    nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Отступы между пунктами меню */
+        margin-top: 20px; /* Добавляем отступ сверху */
+        padding: 0;
+        list-style: none;
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #f1f1f1;
+    }
+
+    /* Скрываем текст Instagram и YouTube */
     .instagram-link span,
     .youtube-link span {
         display: none;
-    }
-
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    footer .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-column ul {
-        text-align: center;
     }
 }
 
@@ -408,16 +414,13 @@ footer {
     }
 
     nav ul li a {
-        font-size: 12px; /* Снижаем размер шрифта для ссылок */
+        font-size: 12px; /* Уменьшаем шрифт еще больше для маленьких экранов */
     }
 
     .social-icon img {
         width: 25px; /* Уменьшаем размер иконок */
         height: 25px;
     }
-
-    .header-content {
-        padding: 10px 20px;
-    }
 }
+
 
