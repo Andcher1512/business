@@ -357,12 +357,14 @@ footer {
         font-size: 20px;
         text-align: center;
         flex: none;
+        order: 1;
     }
 
     .social-icons {
         display: flex;
         gap: 15px;
         margin-top: 10px;
+        order: 2;
     }
 
     .social-icons a {
@@ -381,6 +383,7 @@ footer {
         gap: 10px;
         justify-content: center;
         margin-top: 10px;
+        order: 3;
     }
 
     nav ul li a {
@@ -409,4 +412,5 @@ footer {
         font-size: 12px;
     }
 }
+
 
