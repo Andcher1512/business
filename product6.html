@@ -160,6 +160,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const nextBtn = document.querySelector(".next");
     let currentIndex = -1; // Начинаем с -1, чтобы модалка не открывалась автоматически
 
+    let touchstartX = 0;
+    let touchendX = 0;
+
     function openLightbox(index) {
         if (index >= 0) { // Только если кликнули на изображение
             currentIndex = index;
@@ -209,6 +212,25 @@ document.addEventListener("DOMContentLoaded", function() {
             if (e.key === "Escape") closeLightbox();
         }
     });
+
+    // Добавляем поддержку свайпов на мобильных устройствах
+    lightbox.addEventListener("touchstart", function(e) {
+        touchstartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener("touchend", function(e) {
+        touchendX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        if (touchendX < touchstartX) {
+            showNext(); // Свайп влево
+        }
+        if (touchendX > touchstartX) {
+            showPrev(); // Свайп вправо
+        }
+    }
 
     // Убеждаемся, что модальное окно скрыто при загрузке
     lightbox.style.display = "none";
