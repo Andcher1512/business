@@ -360,18 +360,26 @@ footer {
     nav ul li {
         margin-left: 15px;
     }
-    
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
+
     .social-media {
         margin-top: 10px;
+        display: flex;
+        gap: 20px; /* Уменьшаем отступ между иконками */
     }
 
     .social-icon img {
-        width: 20px;
-        height: 20px;
+        width: 30px; /* Уменьшаем размер иконок */
+        height: 30px;
+    }
+
+    /* Убираем текст на мобильных для Instagram и YouTube */
+    .instagram-link span,
+    .youtube-link span {
+        display: none;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     footer .footer-content {
@@ -394,10 +402,7 @@ footer {
     }
 
     .social-icon img {
-        width: 18px;
-        height: 18px;
+        width: 20px; /* Уменьшаем иконки еще больше */
+        height: 20px;
     }
 }
-
-
-
