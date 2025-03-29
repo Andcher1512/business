@@ -386,82 +386,89 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .container {
+    header {
+        height: 60px;
         padding: 0 10px;
-    }
-
-    .instagram-link span,
-    .youtube-link span {
-        display: none;
     }
 
     .header-content {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+        width: 100%;
         text-align: center;
     }
 
-    .social-links {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 200px;
-        margin-bottom: 10px;
-    }
-
-    .instagram-link img,
-    .youtube-link img {
+    /* Кружки по бокам */
+    .header-circle {
         width: 40px;
         height: 40px;
+        background: var(--secondary);
         border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
     }
 
     .logo {
-        order: 1;
-        font-size: 28px;
+        font-size: 20px;
         font-weight: bold;
-        margin: 10px 0;
+        flex: 1;
+        text-align: center;
     }
 
     nav {
-        order: 2;
-        width: 100%;
+        flex: 2;
+        display: flex;
+        justify-content: center;
     }
 
     nav ul {
         display: flex;
         justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-        padding: 0;
-        margin-top: 10px;
-    }
-
-    nav ul li {
+        gap: 10px;
         list-style: none;
     }
 
     nav ul li a {
-        text-decoration: none;
-        color: black;
+        font-size: 14px;
         font-weight: 500;
+        text-decoration: none;
+        color: white;
+        padding: 5px;
     }
-    
-    .products {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+
+    /* Прячем текст Instagram и YouTube */
+    .instagram-link span,
+    .youtube-link span {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
+    header {
+        height: 50px;
+    }
+
+    .header-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
     .logo {
-        font-size: 24px;
+        font-size: 18px;
+    }
+
+    nav ul {
+        gap: 8px;
     }
 
     nav ul li a {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
