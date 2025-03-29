@@ -345,22 +345,17 @@ footer {
         padding: 0 10px;
     }
 
-    .header-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
     .instagram-link span,
     .youtube-link span {
         display: none;
     }
 
-    .instagram-link,
-    .youtube-link {
+    .social-links {
         display: flex;
-        align-items: center;
         justify-content: center;
+        gap: 20px;
+        width: 100%;
+        margin-bottom: 10px;
     }
 
     .instagram-link img,
@@ -370,35 +365,14 @@ footer {
         border-radius: 50%;
     }
 
-    .header-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .social-links {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 200px;
-        margin-bottom: 10px;
-    }
-
     .logo {
-        order: 1;
+        order: 2;
+        margin: 10px 0;
     }
 
     nav {
-        order: 2;
+        order: 3;
         width: 100%;
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
     }
 }
 
