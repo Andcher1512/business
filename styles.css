@@ -339,51 +339,68 @@ footer {
     color: #aaa;
 }
 
-/* Адаптивность для экранов до 768px */
 @media (max-width: 768px) {
     .container {
         padding: 0 10px;
     }
 
-    /* Хеддер: адаптация для мобильных */
     .header-content {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    nav ul {
+    .instagram-link span,
+    .youtube-link span {
+        display: none;
+    }
+
+    .instagram-link,
+    .youtube-link {
+        display: flex;
+        align-items: center;
         justify-content: center;
+    }
+
+    .instagram-link img,
+    .youtube-link img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    nav {
+        order: 2;
+        width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
         margin-top: 10px;
-    }
-
-    nav ul li {
-        margin-left: 15px;
-    }
-    
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .social-media {
-        margin-top: 10px;
-    }
-
-    .social-icon img {
-        width: 20px;
-        height: 20px;
-    }
-
-    footer .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-column ul {
-        text-align: center;
     }
 }
 
-/* Адаптивность для экранов до 480px */
 @media (max-width: 480px) {
     .logo {
         font-size: 24px;
@@ -391,11 +408,6 @@ footer {
 
     nav ul li a {
         font-size: 14px;
-    }
-
-    .social-icon img {
-        width: 18px;
-        height: 18px;
     }
 }
 
