@@ -367,11 +367,6 @@ footer {
         margin-top: 10px;
     }
 
-    /* Убираем текст вокруг иконок */
-    .social-media span {
-        display: none; /* Убираем текст */
-    }
-
     .social-icon img {
         width: 35px;
         height: 35px;
@@ -388,6 +383,17 @@ footer {
 
     nav ul li a {
         font-size: 14px;
+    }
+
+    /* Стили для продуктов - 2 в ряд на экранах до 768px */
+    .products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        gap: 15px; /* Расстояние между продуктами */
+    }
+
+    .product-card {
+        width: 100%; /* Продукты занимают всю ширину ячейки */
     }
 }
 
@@ -411,9 +417,9 @@ footer {
     nav ul li a {
         font-size: 12px;
     }
+
+    /* Стили для продуктов - 1 в ряд на экранах до 480px */
+    .products {
+        grid-template-columns: 1fr; /* 1 колонка */
+    }
 }
-
-
-
-
-
