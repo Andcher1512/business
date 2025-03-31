@@ -6,11 +6,6 @@
     <title>Порог для автомобиля - Изделия из металла</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Убираем стрелки */
-        .prev, .next {
-            display: none;
-        }
-
         /* Стили для модального окна */
         .product-gallery {
             display: flex;
@@ -44,7 +39,6 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            position: fixed;
         }
 
         .lightbox-content {
@@ -67,6 +61,49 @@
         .close:hover {
             color: red;
         }
+
+        /* Стили для стрелок */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transform: translateY(-50%);
+            user-select: none;
+        }
+
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Убираем стрелки только на мобильных устройствах */
+        @media (max-width: 768px) {
+            .prev, .next {
+                display: none;
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container.header-content {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: -5px;
+            }
+
+            li {
+                margin-top: -5px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -81,11 +118,29 @@
     </div>
 </header>
 
+<script>
+    let lastScrollTop = 0;
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // Скролл вниз — скрываем хеддер
+            header.classList.add("hidden");
+        } else {
+            // Скролл вверх — показываем хеддер
+            header.classList.remove("hidden");
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
+    });
+</script>
+
 <section id="product-details" style="padding: 50px 20px; text-align: center;">
     <div class="container">
         <h2>Пороги для VW Passat B3, B4</h2>
-        <p>Изготавливается как неполный порог (первый загиб по дверь), так и полный порог (под резинку). Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
-        <div class="product-gallery">
+        <p>Изготавливается как неполный порог (первй загиб по дверь), так и полный порог (под резинку). Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
+               <div class="product-gallery">
             <img src="https://i.postimg.cc/FK3HLSR5/IMG-20210718-111552-028.jpg" alt="Порог 1" class="gallery-img">
             <img src="https://i.postimg.cc/2SP5yGC7/IMG-20210718-111552-075.jpg" alt="Порог 2" class="gallery-img">
             <img src="https://i.postimg.cc/SxXsm3bK/IMG-20210718-111552-106.jpg" alt="Порог 3" class="gallery-img">
@@ -97,6 +152,8 @@
 <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
     <img class="lightbox-content" id="lightbox-img">
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
 </div>
 
 <script>
@@ -105,6 +162,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".close");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
     let currentIndex = -1; // Начинаем с -1, чтобы модалка не открывалась автоматически
 
     function openLightbox(index) {
@@ -121,14 +180,14 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.style.overflow = ""; // Возвращаем прокрутку
     }
 
-    function swipeToNext() {
+    function showNext() {
         if (currentIndex >= 0) {
             currentIndex = (currentIndex + 1) % images.length;
             lightboxImg.src = images[currentIndex].src;
         }
     }
 
-    function swipeToPrev() {
+    function showPrev() {
         if (currentIndex >= 0) {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             lightboxImg.src = images[currentIndex].src;
@@ -140,31 +199,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     closeBtn.addEventListener("click", closeLightbox);
-
-    // Обработка свайпов
-    lightbox.addEventListener("touchstart", (e) => {
-        const touchStartX = e.changedTouches[0].clientX;
-        
-        lightbox.addEventListener("touchend", (e) => {
-            const touchEndX = e.changedTouches[0].clientX;
-            if (touchEndX > touchStartX) {
-                swipeToPrev(); // Swipe right to left (next image)
-            } else if (touchEndX < touchStartX) {
-                swipeToNext(); // Swipe left to right (previous image)
-            }
-        });
-    });
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
 
     // Закрытие по клику вне изображения
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) closeLightbox();
     });
 
-    // Переключение с клавиатуры (если нужно)
+    // Переключение с клавиатуры
     document.addEventListener("keydown", (e) => {
         if (lightbox.style.display === "flex") {
-            if (e.key === "ArrowRight") swipeToNext();
-            if (e.key === "ArrowLeft") swipeToPrev();
+            if (e.key === "ArrowRight") showNext();
+            if (e.key === "ArrowLeft") showPrev();
             if (e.key === "Escape") closeLightbox();
         }
     });
@@ -189,9 +236,55 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
 </section>
 
+<style>
+.phone-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d2b48c;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.phone-link:hover,
+.phone-link:active {
+    transform: scale(1.1); /* Увеличение на 10% при наведении или клике */
+}
+</style>
+
 <footer style="text-align: center; padding: 20px; background-color: #222; color: white;">
     <p>&copy; 2025 ИП Николай Николаевич Чернак. Все права защищены.</p>
 </footer>
+
+<script>
+    let isTouchDevice = 'ontouchstart' in document.documentElement;
+
+    if (isTouchDevice) {
+        let startX = 0;
+        let endX = 0;
+
+        const lightboxImages = document.querySelectorAll('.gallery-img');
+        lightboxImages.forEach((image, index) => {
+            image.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            image.addEventListener('touchmove', (e) => {
+                endX = e.touches[0].clientX;
+            });
+
+            image.addEventListener('touchend', () => {
+                if (startX > endX + 50) {
+                    showNext();
+                } else if (startX < endX - 50) {
+                    showPrev();
+                }
+            });
+        });
+    }
+</script>
+
 </body>
 </html>
-
