@@ -393,8 +393,8 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        height: 90px; /* Увеличил высоту хедера */
-        padding: 0 10px;
+        height: 80px; /* Увеличили высоту */
+        padding: 0 15px;
     }
 
     .header-content {
@@ -405,57 +405,36 @@ footer {
         text-align: center;
     }
 
-    .social-media {
-        order: -1; /* Перемещаем соцсети вверх */
-        display: flex;
-        gap: 10px;
-    }
-
     .logo {
         font-size: 22px;
-        font-weight: bold;
-        order: 0; /* Размещаем логотип между Instagram и YouTube */
-        margin: 0 10px;
-    }
-
-    nav {
-        flex: 2;
-        display: flex;
-        justify-content: center;
     }
 
     nav ul {
-        display: flex;
-        justify-content: center;
         gap: 10px;
-        list-style: none;
     }
 
     nav ul li a {
         font-size: 14px;
-        font-weight: 500;
-        text-decoration: none;
-        color: white;
-        padding: 5px;
     }
 
-    /* Прячем текст Instagram и YouTube */
     .instagram-link span,
     .youtube-link span {
         display: none;
     }
-        .products {
-        grid-template-columns: repeat(2, 1fr);
+    
+    .products {
+    grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     header {
-        height: 60px;
+        height: 70px; /* Увеличили высоту */
+        padding: 0 10px;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     nav ul {
@@ -466,5 +445,6 @@ footer {
         font-size: 12px;
     }
 }
+
 
 
