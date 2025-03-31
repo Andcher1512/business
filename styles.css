@@ -173,6 +173,7 @@ section {
     margin: 0 auto;
 }
 
+
 #products {
     margin-bottom: 40px; /* Добавляем больше пространства перед картой */
 }
@@ -196,10 +197,10 @@ section {
 }
 
 .product-img {
-    aspect-ratio: 1 / 1; /* Сохраняет квадратную форму */
-    width: 100%; /* Растяжение на всю ширину */
-    background-size: cover; /* Корректное масштабирование */
-    background-position: center; /* Центрирование изображения */
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .product-info {
