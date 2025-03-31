@@ -181,7 +181,7 @@ section {
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 20px;
 }
 
 .product-card {
@@ -385,6 +385,12 @@ footer {
     color: #aaa;
 }
 
+@media (min-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     header {
         height: 90px; /* Увеличил высоту хедера */
@@ -437,6 +443,9 @@ footer {
     .instagram-link span,
     .youtube-link span {
         display: none;
+    }
+        .products {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
