@@ -268,18 +268,25 @@ document.addEventListener("DOMContentLoaded", function() {
         const lightboxImages = document.querySelectorAll('.gallery-img');
         lightboxImages.forEach((image, index) => {
             image.addEventListener('touchstart', (e) => {
+                // Запоминаем координаты начала касания
                 startX = e.touches[0].clientX;
             });
 
             image.addEventListener('touchmove', (e) => {
+                // Запоминаем координаты, на которых идет движение
                 endX = e.touches[0].clientX;
             });
 
             image.addEventListener('touchend', () => {
-                if (startX > endX + 50) {
-                    showNext();
-                } else if (startX < endX - 50) {
-                    showPrev();
+                // Проверяем, есть ли значительное движение пальцем
+                if (Math.abs(startX - endX) > 50) {
+                    if (startX > endX) {
+                        // Если движение было влево, переключаем на следующее изображение
+                        showNext();
+                    } else {
+                        // Если движение было вправо, переключаем на предыдущее изображение
+                        showPrev();
+                    }
                 }
             });
         });
