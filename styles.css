@@ -179,10 +179,8 @@ section {
 
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Более гибкая сетка */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .product-card {
@@ -198,10 +196,10 @@ section {
 }
 
 .product-img {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
+    aspect-ratio: 1 / 1; /* Сохраняет квадратную форму */
+    width: 100%; /* Растяжение на всю ширину */
+    background-size: cover; /* Корректное масштабирование */
+    background-position: center; /* Центрирование изображения */
 }
 
 .product-info {
