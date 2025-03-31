@@ -182,6 +182,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
+    padding: 0 20px;
 }
 
 .product-card {
@@ -383,12 +384,6 @@ footer {
     padding-top: 20px;
     border-top: 1px solid #444;
     color: #aaa;
-}
-
-@media (min-width: 1024px) {
-    .products {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 @media (max-width: 768px) {
