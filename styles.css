@@ -393,7 +393,7 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        height: 80px; /* Увеличили высоту */
+        height: 90px; /* Увеличили высоту */
         padding: 0 15px;
     }
 
@@ -429,7 +429,7 @@ footer {
 
 @media (max-width: 480px) {
     header {
-        height: 70px; /* Увеличили высоту */
+        height: 80px; /* Увеличили высоту */
         padding: 0 10px;
     }
 
