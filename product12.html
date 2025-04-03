@@ -1,1 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Порог для автомобиля - Изделия из металла</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили для модального окна */
+        .product-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
+        .gallery-img {
+            width: 300px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Стили для модального окна */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        /* Кнопка закрытия */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+        /* Стили для стрелок */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transform: translateY(-50%);
+            user-select: none;
+        }
+
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Убираем стрелки только на мобильных устройствах */
+        @media (max-width: 768px) {
+            .prev, .next {
+                display: none;
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container.header-content {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: -5px;
+            }
+
+            li {
+                margin-top: -5px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header id="header" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 70px; background-color: #333; color: white;">
+    <div class="container header-content" style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+        <div class="logo" style="margin-bottom: 1px;">
+            Изделия из <span>металла</span>
+        </div>
+        <li style="list-style: none; margin-top: 1px;">
+            <a href="metal-business-website.html" style="text-decoration: none; color: white;">Главная</a>
+        </li>
+    </div>
+</header>
+
+<script>
+    let lastScrollTop = 0;
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // Скролл вниз — скрываем хеддер
+            header.classList.add("hidden");
+        } else {
+            // Скролл вверх — показываем хеддер
+            header.classList.remove("hidden");
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
+    });
+</script>
+
+<section id="product-details" style="padding: 50px 20px; text-align: center;">
+    <div class="container">
+        <h2>Ремкомплект крыльев для Renault Scenic</h2>
+        <p>Одна сторона изготавливается из 3-ех частей. Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
+        <div class="product-gallery">
+            <img src="photo/photo_2025-03-18_18-22-47.jpg" alt="Порог 1" class="gallery-img">
+            <img src="photo/photo_2025-03-18_18-22-53.jpg" alt="Порог 2" class="gallery-img">
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".gallery-img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    let currentIndex = -1; // Начинаем с -1, чтобы модалка не открывалась автоматически
+
+    function openLightbox(index) {
+        if (index >= 0) { // Только если кликнули на изображение
+            currentIndex = index;
+            lightboxImg.src = images[currentIndex].src;
+            lightbox.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Блокируем прокрутку страницы
+        }
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = "none";
+        document.body.style.overflow = ""; // Возвращаем прокрутку
+    }
+
+    function showNext() {
+        if (currentIndex >= 0) {
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+        }
+    }
+
+    function showPrev() {
+        if (currentIndex >= 0) {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+        }
+    }
+
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => openLightbox(index));
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
+
+    // Закрытие по клику вне изображения
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Переключение с клавиатуры
+    document.addEventListener("keydown", (e) => {
+        if (lightbox.style.display === "flex") {
+            if (e.key === "ArrowRight") showNext();
+            if (e.key === "ArrowLeft") showPrev();
+            if (e.key === "Escape") closeLightbox();
+        }
+    });
+
+    // Убеждаемся, что модальное окно скрыто при загрузке
+    lightbox.style.display = "none";
+});
+</script>
+
+<section id="contact" style="padding: 20px 20px; background-color: #f8f9fa; text-align: center;">
+    <div class="container">
+        <h2>Свяжитесь с нами</h2>
+        <p style="margin-bottom: 10px;">Звоните нам в любое время, чтобы уточнить график работы и стоимость изделий</p>
+        
+        <a href="tel:+375295204367" class="phone-link">
+            📞 +375 29 520-43-67
+        </a>
+        <br>
+        <a href="tel:+375298239104" class="phone-link">
+            📞 +375 29 823-91-04
+        </a>
+    </div>
+</section>
+
+<style>
+.phone-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d2b48c;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.phone-link:hover,
+.phone-link:active {
+    transform: scale(1.1); /* Увеличение на 10% при наведении или клике */
+}
+</style>
+
+<footer style="text-align: center; padding: 20px; background-color: #222; color: white;">
+    <p>&copy; 2025 ИП Николай Николаевич Чернак. Все права защищены.</p>
+</footer>
+
+<script>
+    let isTouchDevice = 'ontouchstart' in document.documentElement;
+
+    if (isTouchDevice) {
+        let startX = 0;
+        let endX = 0;
+
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const images = document.querySelectorAll(".gallery-img");
+        let currentIndex = -1;
+
+        function showNext() {
+            if (currentIndex >= 0) {
+                currentIndex = (currentIndex + 1) % images.length;
+                lightboxImg.src = images[currentIndex].src;
+            }
+        }
+
+        function showPrev() {
+            if (currentIndex >= 0) {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                lightboxImg.src = images[currentIndex].src;
+            }
+        }
+
+        lightbox.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        lightbox.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        });
+
+        lightbox.addEventListener('touchend', () => {
+            if (Math.abs(startX - endX) > 50) {
+                if (startX > endX) {
+                    showNext();
+                } else {
+                    showPrev();
+                }
+            }
+        });
+
+        // Обновляем текущий индекс при открытии модального окна
+        images.forEach((img, index) => {
+            img.addEventListener("click", () => {
+                currentIndex = index;
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
