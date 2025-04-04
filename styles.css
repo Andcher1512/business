@@ -17,60 +17,51 @@ body {
     background-color: #d3d3d3;
     color: var(--dark);
     line-height: 1.6;
-    padding-top: 70px; /* Хеддер фиксирован, добавим отступ */
+    padding-top: 80px;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
+/* ---------------- HEADER ---------------- */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
-    transition: transform 0.3s ease;
-    z-index: 1000;
+    height: 70px;
     background-color: var(--primary);
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
 header.hidden {
     transform: translateY(-100%);
 }
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
 .logo {
-    font-size: clamp(18px, 5vw, 28px);
+    font-size: 24px;
     font-weight: bold;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .logo span {
     color: var(--secondary);
 }
 
+/* Навигация */
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav ul {
     display: flex;
     list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
+    gap: 20px;
 }
 
 nav ul li a {
@@ -82,6 +73,22 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #f1f1f1;
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
 }
 
 .social-media {
@@ -348,45 +355,55 @@ footer {
     color: #aaa;
 }
 
-/* ------------------ АДАПТИВ ------------------ */
 @media (max-width: 768px) {
     header {
-        height: 90px;
+        height: 70px;
         padding: 0 15px;
     }
 
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    .logo {
+        font-size: 20px;
     }
 
-    .logo {
-        font-size: 22px;
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        display: none;
+    }
+
+    nav.active {
+        display: flex;
     }
 
     nav ul {
         flex-direction: column;
-        gap: 8px;
-        align-items: flex-start;
-        padding-top: 5px;
+        width: 100%;
+        gap: 10px;
     }
 
     nav ul li {
-        margin-left: 0;
+        width: 100%;
     }
 
     nav ul li a {
-        font-size: 14px;
+        display: block;
+        width: 100%;
+        font-size: 16px;
     }
 
+    .burger {
+        display: flex;
+    }
+    
     .instagram-link span,
     .youtube-link span {
         display: none;
-    }
-
-    .products {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
