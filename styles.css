@@ -477,6 +477,18 @@ footer {
         display: none;
     }
     
+    .burger {
+    display: flex;
+}
+
+nav ul {
+    display: none; /* Прячем обычное меню */
+}
+
+nav {
+    flex: none;
+}
+    
     .products {
     grid-template-columns: repeat(2, 1fr);
     }
