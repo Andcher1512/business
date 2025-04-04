@@ -14,10 +14,10 @@
 }
 
 body {
-    background-color: #d3d3d3; /* Light gray color */
+    background-color: #d3d3d3;
     color: var(--dark);
     line-height: 1.6;
-    padding-top: 20px;
+    padding-top: 100px;
 }
 
 .container {
@@ -25,25 +25,26 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+/* HEADER */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    transition: transform 0.3s ease; /* Используем transform вместо top для анимации */
-    z-index: 1000;
-    margin-bottom: -10px;
     background-color: var(--primary);
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
 header.hidden {
-    transform: translateY(-100%); /* Перемещаем хеддер вверх на его полную высоту */
+    transform: translateY(-100%);
 }
 
 .header-content {
@@ -63,6 +64,7 @@ header.hidden {
     color: var(--secondary);
 }
 
+/* NAVIGATION */
 nav ul {
     display: flex;
     list-style: none;
@@ -83,44 +85,7 @@ nav ul li a:hover {
     color: #f1f1f1;
 }
 
-.social-media {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icon img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s;
-}
-
-.social-icon:hover img {
-    transform: scale(1.1);
-}
-
-section {
-    padding: 20px 0; /* Уменьшаем отступы сверху и снизу */
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 10px; /* Уменьшаем отступ снизу */
-}
-
-.section-header h2 {
-    font-size: 32px; /* Можно немного уменьшить размер заголовка */
-    color: var(--primary);
-    margin-bottom: 10px; /* Уменьшаем расстояние между заголовком и параграфом */
-}
-
-.section-header p {
-    color: var(--gray);
-    max-width: 700px;
-    margin: 0 auto;
-    margin-bottom: 5px; /* Минимальный отступ для равномерности */
-}
-
-/* Стили бургера */
+/* BURGER MENU */
 .burger {
     display: none;
     flex-direction: column;
@@ -137,7 +102,7 @@ section {
     border-radius: 2px;
 }
 
-/* Мобильное меню */
+/* MOBILE NAV */
 .mobile-nav {
     display: none;
     flex-direction: column;
@@ -152,9 +117,9 @@ section {
 
 .mobile-nav ul {
     list-style: none;
+    text-align: center;
     padding: 0;
     margin: 0;
-    text-align: center;
 }
 
 .mobile-nav li {
@@ -171,14 +136,29 @@ section {
     display: flex;
 }
 
-/* Уменьшаем отступы вокруг карты */
-#map-container {
-    width: 100%;
-    max-width: 1500px;
-    height: 450px; /* Можно сделать карту чуть ниже */
-    margin: 0 auto;
+/* SECTION */
+section {
+    padding: 20px 0;
 }
 
+.section-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto 5px;
+}
+
+/* SOCIAL MEDIA */
 .social-media {
     display: flex;
     gap: 15px;
@@ -194,39 +174,17 @@ section {
     transform: scale(1.1);
 }
 
-section {
-    padding: 20px 0; /* Уменьшаем отступы сверху и снизу */
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 10px; /* Уменьшаем отступ снизу */
-}
-
-.section-header h2 {
-    font-size: 32px; /* Можно немного уменьшить размер заголовка */
-    color: var(--primary);
-    margin-bottom: 10px; /* Уменьшаем расстояние между заголовком и параграфом */
-}
-
-.section-header p {
-    color: var(--gray);
-    max-width: 700px;
-    margin: 0 auto;
-    margin-bottom: 5px; /* Минимальный отступ для равномерности */
-}
-
-/* Уменьшаем отступы вокруг карты */
+/* MAP */
 #map-container {
     width: 100%;
     max-width: 1500px;
-    height: 450px; /* Можно сделать карту чуть ниже */
+    height: 450px;
     margin: 0 auto;
 }
 
-
+/* PRODUCTS */
 #products {
-    margin-bottom: 40px; /* Добавляем больше пространства перед картой */
+    margin-bottom: 40px;
 }
 
 .products {
@@ -277,8 +235,7 @@ section {
 }
 
 .product-card.wide .product-img {
-    aspect-ratio: 2 / 1; /* Делаем изображение растянутым, но не высоким */
-    width: 100%;
+    aspect-ratio: 2 / 1;
 }
 
 .tag {
@@ -291,10 +248,11 @@ section {
     margin-right: 5px;
 }
 
+/* ABOUT */
 .about-title {
     font-size: 36px;
     font-family: 'Playfair Display', serif;
-    color: #e63946;
+    color: var(--secondary);
     margin-bottom: 20px;
 }
 
@@ -327,7 +285,7 @@ section {
 .about-text h3 {
     font-size: 28px;
     font-family: 'Playfair Display', serif;
-    color: #e63946;
+    color: var(--secondary);
     margin-bottom: 15px;
 }
 
@@ -357,6 +315,7 @@ section {
     transform: scale(1.05);
 }
 
+/* CONTACT */
 .contact-info {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -365,13 +324,13 @@ section {
 }
 
 .contact-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.95)); /* Градиентный светлый фон */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.95));
     padding: 30px;
-    border-radius: 12px; /* Плавные края */
+    border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(8px); /* Эффект размытия */
+    backdrop-filter: blur(8px);
 }
 
 .contact-card:hover {
@@ -402,6 +361,7 @@ section {
     transition: color 0.3s;
 }
 
+/* FOOTER */
 footer {
     background-color: var(--dark);
     color: white;
@@ -446,49 +406,37 @@ footer {
     color: #aaa;
 }
 
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
     header {
-        height: 90px; /* Увеличили высоту */
+        height: 90px;
         padding: 0 15px;
     }
 
     .header-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        text-align: center;
+        flex-direction: row;
     }
 
     .logo {
         font-size: 22px;
     }
 
-    .instagram-link span,
-    .youtube-link span {
+    .burger {
+        display: flex;
+    }
+
+    nav ul {
         display: none;
     }
-    
-    .burger {
-    display: flex;
-}
 
-nav ul {
-    display: none; /* Прячем обычное меню */
-}
-
-nav {
-    flex: none;
-}
-    
     .products {
-    grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     header {
-        height: 80px; /* Увеличили высоту */
+        height: 80px;
         padding: 0 10px;
     }
 
@@ -496,14 +444,15 @@ nav {
         font-size: 18px;
     }
 
-    nav ul {
-        gap: 8px;
-    }
-
     nav ul li a {
         font-size: 12px;
     }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
 }
+
 
 
 
