@@ -14,10 +14,10 @@
 }
 
 body {
-    background-color: #d3d3d3; /* Light gray color */
+    background-color: #d3d3d3;
     color: var(--dark);
     line-height: 1.6;
-    padding-top: 20px;
+    padding-top: 90px; /* Хеддер фиксирован, добавим отступ */
 }
 
 .container {
@@ -25,15 +25,15 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    transition: transform 0.3s ease; /* Используем transform вместо top для анимации */
+    transition: transform 0.3s ease;
     z-index: 1000;
-    margin-bottom: -10px;
     background-color: var(--primary);
     color: white;
     display: flex;
@@ -43,7 +43,7 @@ header {
 }
 
 header.hidden {
-    transform: translateY(-100%); /* Перемещаем хеддер вверх на его полную высоту */
+    transform: translateY(-100%);
 }
 
 .header-content {
@@ -55,8 +55,9 @@ header.hidden {
 }
 
 .logo {
-    font-size: 28px;
+    font-size: clamp(18px, 5vw, 28px);
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .logo span {
@@ -99,83 +100,35 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 20px 0; /* Уменьшаем отступы сверху и снизу */
+    padding: 20px 0;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 10px; /* Уменьшаем отступ снизу */
+    margin-bottom: 10px;
 }
 
 .section-header h2 {
-    font-size: 32px; /* Можно немного уменьшить размер заголовка */
+    font-size: 32px;
     color: var(--primary);
-    margin-bottom: 10px; /* Уменьшаем расстояние между заголовком и параграфом */
+    margin-bottom: 10px;
 }
 
 .section-header p {
     color: var(--gray);
     max-width: 700px;
-    margin: 0 auto;
-    margin-bottom: 5px; /* Минимальный отступ для равномерности */
+    margin: 0 auto 5px;
 }
 
-/* Уменьшаем отступы вокруг карты */
 #map-container {
     width: 100%;
     max-width: 1500px;
-    height: 450px; /* Можно сделать карту чуть ниже */
+    height: 450px;
     margin: 0 auto;
 }
-
-.social-media {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icon img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s;
-}
-
-.social-icon:hover img {
-    transform: scale(1.1);
-}
-
-section {
-    padding: 20px 0; /* Уменьшаем отступы сверху и снизу */
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 10px; /* Уменьшаем отступ снизу */
-}
-
-.section-header h2 {
-    font-size: 32px; /* Можно немного уменьшить размер заголовка */
-    color: var(--primary);
-    margin-bottom: 10px; /* Уменьшаем расстояние между заголовком и параграфом */
-}
-
-.section-header p {
-    color: var(--gray);
-    max-width: 700px;
-    margin: 0 auto;
-    margin-bottom: 5px; /* Минимальный отступ для равномерности */
-}
-
-/* Уменьшаем отступы вокруг карты */
-#map-container {
-    width: 100%;
-    max-width: 1500px;
-    height: 450px; /* Можно сделать карту чуть ниже */
-    margin: 0 auto;
-}
-
 
 #products {
-    margin-bottom: 40px; /* Добавляем больше пространства перед картой */
+    margin-bottom: 40px;
 }
 
 .products {
@@ -226,7 +179,7 @@ section {
 }
 
 .product-card.wide .product-img {
-    aspect-ratio: 2 / 1; /* Делаем изображение растянутым, но не высоким */
+    aspect-ratio: 2 / 1;
     width: 100%;
 }
 
@@ -314,13 +267,13 @@ section {
 }
 
 .contact-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.95)); /* Градиентный светлый фон */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.95));
     padding: 30px;
-    border-radius: 12px; /* Плавные края */
+    border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(8px); /* Эффект размытия */
+    backdrop-filter: blur(8px);
 }
 
 .contact-card:hover {
@@ -395,18 +348,17 @@ footer {
     color: #aaa;
 }
 
+/* ------------------ АДАПТИВ ------------------ */
 @media (max-width: 768px) {
     header {
-        height: 90px; /* Увеличили высоту */
+        height: 90px;
         padding: 0 15px;
     }
 
     .header-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        text-align: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
     .logo {
@@ -414,7 +366,14 @@ footer {
     }
 
     nav ul {
-        gap: 10px;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+        padding-top: 5px;
+    }
+
+    nav ul li {
+        margin-left: 0;
     }
 
     nav ul li a {
@@ -425,15 +384,15 @@ footer {
     .youtube-link span {
         display: none;
     }
-    
+
     .products {
-    grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     header {
-        height: 80px; /* Увеличили высоту */
+        height: 80px;
         padding: 0 10px;
     }
 
@@ -442,13 +401,18 @@ footer {
     }
 
     nav ul {
-        gap: 8px;
+        gap: 6px;
     }
 
     nav ul li a {
         font-size: 12px;
     }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
 }
+
 
 
 
