@@ -23,12 +23,6 @@
     transition: transform 0.3s ease;
 }
         
-        @media (max-width: 768px) {
-    .product-gallery {
-        grid-template-columns: repeat(2, 1fr); /* Две колонки на экранах до 768px */
-    }
-}
-
 .gallery-img:hover {
     transform: scale(1.05);
 }
@@ -90,14 +84,7 @@
         .prev:hover, .next:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
-
-        /* Убираем стрелки только на мобильных устройствах */
-        @media (max-width: 768px) {
-            .prev, .next {
-                display: none;
-            }
-        }
-
+       
         /* Адаптивность */
         @media (max-width: 768px) {
             .container.header-content {
@@ -111,7 +98,15 @@
             li {
                 margin-top: -5px;
             }
+
+                .product-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки на экранах до 768px */
+    }
+            .prev, .next {
+                display: none;
+            } 
         }
+        
     </style>
 </head>
 <body>
