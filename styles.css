@@ -340,13 +340,20 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header {
-        height: 70px;
-        padding: 0 15px;
+    .burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
     }
 
-    .logo {
-        font-size: 20px;
+    .burger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.3s;
     }
 
     nav {
@@ -371,20 +378,12 @@ footer {
         gap: 10px;
     }
 
-    nav ul li {
-        width: 100%;
-    }
-
     nav ul li a {
+        font-size: 16px;
         display: block;
         width: 100%;
-        font-size: 16px;
     }
 
-    .burger {
-        display: flex;
-    }
-    
     .instagram-link span,
     .youtube-link span {
         display: none;
@@ -392,23 +391,54 @@ footer {
 }
 
 @media (max-width: 480px) {
-    header {
-        height: 80px;
-        padding: 0 10px;
+       .burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
     }
 
-    .logo {
-        font-size: 18px;
+    .burger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.3s;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        display: none;
+    }
+
+    nav.active {
+        display: flex;
     }
 
     nav ul {
-        gap: 6px;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
     }
 
     nav ul li a {
-        font-size: 12px;
+        font-size: 16px;
+        display: block;
+        width: 100%;
     }
 
+    .instagram-link span,
+    .youtube-link span {
+        display: none;
+    }
     .products {
         grid-template-columns: 1fr;
     }
