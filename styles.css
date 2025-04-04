@@ -221,6 +221,13 @@ section {
 
 .product-card.wide {
     grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card.wide .product-img {
+    aspect-ratio: 2 / 1; /* Делаем изображение растянутым, но не высоким */
+    width: 100%;
 }
 
 .tag {
