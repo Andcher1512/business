@@ -219,6 +219,14 @@ section {
     margin-bottom: 15px;
 }
 
+.product-card.wide {
+    grid-column: span 2;
+}
+
+.product-card.wide .product-img {
+    aspect-ratio: 2 / 1;
+}
+
 .tag {
     display: inline-block;
     background-color: var(--secondary);
