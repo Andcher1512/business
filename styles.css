@@ -120,6 +120,57 @@ section {
     margin-bottom: 5px; /* Минимальный отступ для равномерности */
 }
 
+/* Стили бургера */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Мобильное меню */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 20px 0;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-nav li {
+    margin: 15px 0;
+}
+
+.mobile-nav a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.mobile-nav.show {
+    display: flex;
+}
+
 /* Уменьшаем отступы вокруг карты */
 #map-container {
     width: 100%;
