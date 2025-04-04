@@ -22,6 +22,12 @@
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+        
+        @media (max-width: 768px) {
+    .product-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки на экранах до 768px */
+    }
+}
 
 .gallery-img:hover {
     transform: scale(1.05);
