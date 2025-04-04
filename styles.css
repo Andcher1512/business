@@ -220,7 +220,7 @@ section {
 }
 
 .product-card.wide {
-    grid-column: span 2;
+    grid-column: span 4;
 }
 
 .product-card.wide .product-img {
@@ -425,6 +425,10 @@ footer {
     
     .products {
     grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .product-card.wid {
+        grid-column: span 2;
     }
 }
 
