@@ -449,6 +449,10 @@ footer {
     nav ul li a {
         font-size: 12px;
     }
+    
+    .product-card.wid {
+        grid-column: span 1;
+    }
 }
 
 
