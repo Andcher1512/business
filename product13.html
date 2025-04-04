@@ -8,22 +8,24 @@
     <style>
         /* Стили для модального окна */
         .product-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Автоматическая подгонка колонок */
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+}
 
-        .gallery-img {
-            width: 300px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+.gallery-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
-        .gallery-img:hover {
-            transform: scale(1.05);
-        }
+.gallery-img:hover {
+    transform: scale(1.05);
+}
 
         /* Стили для модального окна */
         .lightbox {
@@ -138,7 +140,7 @@
 
 <section id="product-details" style="padding: 50px 20px; text-align: center;">
     <div class="container">
-         <h2>Пороги для Renault Laguna I</h2>
+         <h2>Коллекция выполненных заказов</h2>
         <p>Материалы исполнения: черная х/к сталь (1,2 мм), оцинкованная сталь (1,2 мм), оцинкованная сталь (1,0 мм), ваш материал (до 1,2 мм).</p>
         <div class="product-gallery">
     <img src="photo/IMG_20210519_161440_694.jpg" alt="Порог 1" class="gallery-img">
