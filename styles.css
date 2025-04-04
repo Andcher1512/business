@@ -464,14 +464,6 @@ footer {
         font-size: 22px;
     }
 
-    nav ul {
-        gap: 10px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
     .instagram-link span,
     .youtube-link span {
         display: none;
