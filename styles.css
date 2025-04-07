@@ -476,7 +476,7 @@ footer {
         display: none;
     }
 
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
     header {
         height: 90px; /* Увеличили высоту */
         padding: 0 15px;
@@ -517,28 +517,20 @@ footer {
         display: inline-block;
     }
 
-    .burger-menu {
+    .social-media {
         display: flex;
-        margin-left: auto; /* отталкиваем в край справа */
-        margin-right: 5px; /* но не вплотную */
+        gap: 6px;
+        margin-right: 0;
     }
 
-    nav {
-        display: none;
-    }
-
-    .mobile-nav.show {
-        display: block;
-    }
-
-    .products {
-        grid-template-columns: repeat(2, 1fr);
+    .youtube-link {
+        margin-right: 10px; /* расстояние между YouTube и бургер-меню */
     }
 
     .burger-menu {
         display: flex;
-        margin-left: auto; /* отталкиваем в край справа */
-        margin-right: 5px; /* но не вплотную */
+        margin-left: 0;
+        margin-right: 5px;
     }
 
     nav {
