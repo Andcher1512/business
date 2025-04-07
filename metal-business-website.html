@@ -39,6 +39,24 @@
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </nav>
+
+	    <!-- Бургер и мобильное меню -->
+<div class="burger-menu" id="burgerMenu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
+<!-- Мобильная навигация -->
+<nav class="mobile-nav" id="mobileNav">
+    <ul>
+        <li><a href="#info-section">Главная</a></li>
+        <li><a href="#products">Продукция</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#contact">Контакты</a></li>
+    </ul>
+</nav>
+
     </div>
 </header>
 
@@ -59,6 +77,16 @@
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
         });
     </script>
+
+	<script>
+    const burgerMenu = document.getElementById('burgerMenu');
+    const mobileNav = document.getElementById('mobileNav');
+
+    burgerMenu.addEventListener('click', () => {
+        mobileNav.classList.toggle('show');
+    });
+</script>
+
 </body>
     
 <section id="info-section" style="position: relative; padding: 80px 0; color: white; background: url('photo/2af2b174ba322fc0c6ed386035a5c571.jpg') no-repeat center/cover;">
