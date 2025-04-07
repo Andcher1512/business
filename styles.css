@@ -477,29 +477,32 @@ footer {
     .youtube-link span {
         display: none;
     }
-    
- .social-media {
-        gap: 8px; /* уменьшили расстояние между иконками */
-        margin-right: 10px; /* отступ между соцсетями и бургер-меню */
-    }
-    
-       nav {
-        display: none;
+
+    .social-media {
+        display: flex;
+        gap: 5px; /* ближе друг к другу */
+        margin-right: 0; /* убрали лишний отступ */
     }
 
     .burger-menu {
         display: flex;
-        margin-left: 5px;
+        margin-left: auto; /* отталкиваем в край справа */
+        margin-right: 5px; /* но не вплотную */
+    }
+
+    nav {
+        display: none;
     }
 
     .mobile-nav.show {
         display: block;
     }
-    
+
     .products {
-    grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
+
 
 @media (max-width: 480px) {
     header {
