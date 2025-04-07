@@ -120,22 +120,20 @@ section {
     margin: 0 auto;
     margin-bottom: 5px; /* Минимальный отступ для равномерности */
 }
-
-/* Бургер-меню (только мобильная версия) */
 .burger-menu {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 20px;
-    height: 16px;
+    width: 18px;     /* чуть меньше ширина */
+    height: 12px;    /* уменьшили общую высоту */
     cursor: pointer;
 }
 
 .burger-menu .bar {
-    height: 3px;
+    height: 2px;     /* тоньше полоски */
     width: 100%;
     background-color: white;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 
 #mobileNav {
