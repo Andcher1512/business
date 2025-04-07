@@ -25,6 +25,7 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
 header {
     position: fixed;
     top: 0;
@@ -118,6 +119,65 @@ section {
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 5px; /* Минимальный отступ для равномерности */
+}
+
+/* Бургер-меню (только мобильная версия) */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.burger-menu .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Мобильная навигация (по умолчанию скрыта) */
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary);
+    z-index: 999;
+    text-align: center;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.mobile-nav ul li {
+    margin: 10px 0;
+}
+
+.mobile-nav ul li a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* Показываем бургер и скрываем обычное меню на мобильных */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .mobile-nav.show {
+        display: block;
+    }
 }
 
 /* Уменьшаем отступы вокруг карты */
@@ -424,6 +484,18 @@ footer {
     .instagram-link span,
     .youtube-link span {
         display: none;
+    }
+
+       nav {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .mobile-nav.show {
+        display: block;
     }
     
     .products {
