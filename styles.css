@@ -449,8 +449,8 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        height: 90px; /* Увеличили высоту */
-        padding: 0 15px;
+        height: 90px;
+        padding: 0 10px;
     }
 
     .header-content {
@@ -458,7 +458,6 @@ footer {
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        text-align: center;
     }
 
     .logo {
@@ -480,14 +479,21 @@ footer {
 
     .social-media {
         display: flex;
-        gap: 5px; /* ближе друг к другу */
-        margin-right: 0; /* убрали лишний отступ */
+        gap: 4px;
+        margin-right: 0;
+        flex-shrink: 1; /* позволяет сжаться при нехватке места */
+    }
+
+    .social-media a svg {
+        width: 18px;
+        height: 18px;
     }
 
     .burger-menu {
         display: flex;
-        margin-left: auto; /* отталкиваем в край справа */
-        margin-right: 5px; /* но не вплотную */
+        margin-left: 8px;
+        margin-right: 0;
+        flex-shrink: 0; /* не даём бургеру сжиматься */
     }
 
     nav {
@@ -502,7 +508,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
 
 @media (max-width: 480px) {
     header {
