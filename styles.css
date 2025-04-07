@@ -449,8 +449,8 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        height: 80px;
-        padding: 0 8px;
+        height: 90px; /* Увеличили высоту */
+        padding: 0 15px;
     }
 
     .header-content {
@@ -458,24 +458,19 @@ footer {
         align-items: center;
         justify-content: space-between;
         width: 100%;
+        text-align: center;
     }
 
     .logo {
-        font-size: 20px;
-        margin-right: auto;
-        white-space: nowrap;
-    }
-
-    nav {
-        display: none;
+        font-size: 22px;
     }
 
     nav ul {
-        gap: 6px;
+        gap: 10px;
     }
 
     nav ul li a {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .instagram-link span,
@@ -485,22 +480,18 @@ footer {
 
     .social-media {
         display: flex;
-        gap: 4px;
-        margin-left: auto;
-        margin-right: 4px;
-        align-items: center;
-        flex-shrink: 0;
-    }
-
-    .social-media a svg {
-        width: 18px;
-        height: 18px;
+        gap: 5px; /* ближе друг к другу */
+        margin-right: 0; /* убрали лишний отступ */
     }
 
     .burger-menu {
         display: flex;
-        margin-left: 4px;
-        flex-shrink: 0;
+        margin-left: auto; /* отталкиваем в край справа */
+        margin-right: 5px; /* но не вплотную */
+    }
+
+    nav {
+        display: none;
     }
 
     .mobile-nav.show {
@@ -511,7 +502,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
 
 @media (max-width: 480px) {
     header {
