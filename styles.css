@@ -481,11 +481,17 @@ footer {
         margin-right: 0; /* убрали отступ, чтобы не съезжало */
     }
 
-    .burger-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 10px; /* расстояние между соцсетями и бургером */
-    }
+   .social-burger-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* расстояние между YouTube и бургером */
+}
+
+.social-burger-wrapper > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* уменьшено между иконками */
+}
 
     .burger-menu {
         display: flex;
