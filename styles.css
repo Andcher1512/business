@@ -139,15 +139,20 @@ section {
 #mobileNav {
     display: none;
     position: absolute;
-    top: 80px;
+    top: 90px; /* Учитываем высоту header */
     left: 0;
     width: 100%;
     background-color: var(--primary);
-    padding: 6px 10px; /* меньше отступов сверху и снизу */
+    padding: 6px 10px;
     z-index: 999;
     overflow-x: auto;
     white-space: nowrap;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* Анимация появления */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 #mobileNav a {
@@ -156,14 +161,17 @@ section {
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    padding: 4px 8px; /* меньше "внутренней" высоты */
+    padding: 4px 8px;
     margin-right: 6px;
     transition: background-color 0.2s ease;
     border-radius: 4px;
+    text-align: center;
 }
 
 #mobileNav.show {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #mobileNav a:hover {
