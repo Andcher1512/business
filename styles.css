@@ -143,10 +143,10 @@ section {
     left: 0;
     width: 100%;
     background-color: var(--primary);
-    padding: 6px 10px; /* меньше отступов сверху и снизу */
+    padding: 6px 10px;
     z-index: 999;
-    overflow-x: auto;
-    white-space: nowrap;
+    overflow-y: auto;  /* Добавляем вертикальную прокрутку */
+    max-height: 80vh;  /* Ограничиваем высоту меню, чтобы оно не выходило за пределы экрана */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
