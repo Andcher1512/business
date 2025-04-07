@@ -478,10 +478,63 @@ footer {
         display: none;
     }
 
-    .social-media {
+   @media (max-width: 768px) {
+    header {
+        height: 90px; /* Увеличили высоту */
+        padding: 0 15px;
+    }
+
+    .header-content {
         display: flex;
-        gap: 5px; /* ближе друг к другу */
-        margin-right: 0; /* убрали лишний отступ */
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    /* Скрываем текст в ссылках соцсетей */
+    .instagram-link span,
+    .youtube-link span {
+        display: none;
+    }
+
+    .social-media::before {
+        content: "Следите за нами в соцсетях";
+        font-size: 14px;
+        color: white;
+        margin-right: 10px;
+        align-self: center;
+        display: inline-block;
+    }
+
+    .burger-menu {
+        display: flex;
+        margin-left: auto; /* отталкиваем в край справа */
+        margin-right: 5px; /* но не вплотную */
+    }
+
+    nav {
+        display: none;
+    }
+
+    .mobile-nav.show {
+        display: block;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .burger-menu {
