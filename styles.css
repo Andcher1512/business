@@ -447,7 +447,7 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        height: 90px; /* Увеличили высоту */
+        height: 90px;
         padding: 0 15px;
     }
 
@@ -456,7 +456,6 @@ footer {
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        text-align: center;
     }
 
     .logo {
@@ -471,25 +470,26 @@ footer {
         font-size: 14px;
     }
 
-    /* Скрываем текст в ссылках соцсетей */
     .instagram-link span,
     .youtube-link span {
         display: none;
     }
 
-   .social-media {
-    display: flex;
-    gap: 6px; /* немного ближе иконки между собой */
-    margin-right: 15px; /* добавим отступ справа от соцсетей */
-}
+    .social-media {
+        display: flex;
+        gap: 6px;
+        margin-right: 0; /* убрали отступ, чтобы не съезжало */
+    }
 
-.social-media a:last-child {
-    margin-right: 10px; /* добавим отступ после последней иконки (YouTube) */
-}
+    .burger-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* расстояние между соцсетями и бургером */
+    }
 
-.burger-menu {
-    margin-left: 10px; /* немного отодвигаем от YouTube */
-}
+    .burger-menu {
+        display: flex;
+    }
 
     nav {
         display: none;
