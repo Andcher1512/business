@@ -141,33 +141,21 @@ section {
 #mobileNav {
     display: none;
     position: absolute;
-    top: 80px; /* ниже хедера */
-    right: 10px;
-    background-color: #4b2e1f; /* Новый цвет фона */
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-}
-
-#mobileNav {
-    display: none;
-    position: absolute;
-    top: 80px; /* ниже хедера */
+    top: 80px; /* прямо под хедером */
     left: 0;
     width: 100%;
-    background-color: var(--primary); /* тот же цвет, что и у header */
+    background-color: var(--primary); /* тот же цвет, что и у хедера */
     padding: 15px 0;
+    border-radius: 0; /* убираем скругления */
+    box-shadow: none; /* убираем тень, если не нужна */
     z-index: 999;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* аккуратная граница */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* мягкая тень вниз */
 }
 
 /* При активации бургер-меню */
 #mobileNav.show {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -177,15 +165,12 @@ section {
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
-    padding: 5px 0;
-    width: 100%;
-    text-align: center;
-    transition: background-color 0.2s ease;
 }
 
 #mobileNav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    color: #f1f1f1;
 }
+
 
 /* Уменьшаем отступы вокруг карты */
 #map-container {
