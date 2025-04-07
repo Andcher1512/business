@@ -471,37 +471,6 @@ footer {
         font-size: 14px;
     }
 
-    .instagram-link span,
-    .youtube-link span {
-        display: none;
-    }
-
-@media (max-width: 768px) {
-    header {
-        height: 90px; /* Увеличили высоту */
-        padding: 0 15px;
-    }
-
-    .header-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        text-align: center;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    nav ul {
-        gap: 10px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
     /* Скрываем текст в ссылках соцсетей */
     .instagram-link span,
     .youtube-link span {
@@ -518,20 +487,21 @@ footer {
     }
 
     .social-media {
-        display: flex;
-        gap: 6px;
-        margin-right: 0;
-    }
+    display: flex;
+    gap: 4px; /* уменьшили расстояние между кружками */
+    margin-right: 10px; /* немного отступили от бургера */
+    align-items: center;
+}
 
-    .youtube-link {
-        margin-right: 10px; /* расстояние между YouTube и бургер-меню */
-    }
+.youtube-link {
+    margin-right: 10px; /* увеличили расстояние между YouTube и бургер-меню */
+}
 
-    .burger-menu {
-        display: flex;
-        margin-left: 0;
-        margin-right: 5px;
-    }
+.burger-menu {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
 
     nav {
         display: none;
