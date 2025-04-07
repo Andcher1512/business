@@ -477,31 +477,19 @@ footer {
         display: none;
     }
 
-    .social-media::before {
-        content: "Следите за нами в соцсетях";
-        font-size: 14px;
-        color: white;
-        margin-right: 10px;
-        align-self: center;
-        display: inline-block;
-    }
-
-    .social-media {
+   .social-media {
     display: flex;
-    gap: 4px; /* уменьшили расстояние между кружками */
-    margin-right: 10px; /* немного отступили от бургера */
-    align-items: center;
+    gap: 6px; /* немного ближе иконки между собой */
+    margin-right: 15px; /* добавим отступ справа от соцсетей */
 }
 
-.youtube-link {
-    margin-right: 10px; /* увеличили расстояние между YouTube и бургер-меню */
+.social-media a:last-child {
+    margin-right: 10px; /* добавим отступ после последней иконки (YouTube) */
 }
 
 .burger-menu {
-    margin-left: 0;
-    margin-right: 10px;
+    margin-left: 10px; /* немного отодвигаем от YouTube */
 }
-
 
     nav {
         display: none;
