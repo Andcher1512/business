@@ -144,12 +144,12 @@ section {
     top: 80px;
     left: 0;
     width: 100%;
-    background-color: var(--primary);
+    background-color: var(--primary); /* плавное продолжение хедера */
     padding: 10px;
     z-index: 999;
     overflow-x: auto;
     white-space: nowrap;
-    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #mobileNav.show {
@@ -160,16 +160,16 @@ section {
     display: inline-block;
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px; /* уменьшенный шрифт */
     font-weight: 500;
-    padding: 6px 12px;
-    margin-right: 10px;
+    padding: 6px 10px;
+    margin-right: 8px;
     transition: background-color 0.2s ease;
+    border-radius: 4px;
 }
 
 #mobileNav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Уменьшаем отступы вокруг карты */
