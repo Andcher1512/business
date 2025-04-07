@@ -124,8 +124,8 @@ section {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 18px;     /* чуть меньше ширина */
-    height: 12px;    /* уменьшили общую высоту */
+    width: 25px;     /* чуть меньше ширина */
+    height: 20px;    /* уменьшили общую высоту */
     cursor: pointer;
 }
 
@@ -142,28 +142,28 @@ section {
     top: 80px;
     left: 0;
     width: 100%;
-    background-color: var(--primary); /* плавное продолжение хедера */
-    padding: 10px;
+    background-color: var(--primary);
+    padding: 6px 10px; /* меньше отступов сверху и снизу */
     z-index: 999;
     overflow-x: auto;
     white-space: nowrap;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#mobileNav.show {
-    display: block;
-}
-
 #mobileNav a {
     display: inline-block;
     color: white;
     text-decoration: none;
-    font-size: 14px; /* уменьшенный шрифт */
+    font-size: 14px;
     font-weight: 500;
-    padding: 6px 10px;
-    margin-right: 8px;
+    padding: 4px 8px; /* меньше "внутренней" высоты */
+    margin-right: 6px;
     transition: background-color 0.2s ease;
     border-radius: 4px;
+}
+
+#mobileNav.show {
+    display: block;
 }
 
 #mobileNav a:hover {
