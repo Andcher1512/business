@@ -477,13 +477,19 @@ footer {
     .youtube-link span {
         display: none;
     }
-
+    
+ .social-media {
+        gap: 8px; /* уменьшили расстояние между иконками */
+        margin-right: 10px; /* отступ между соцсетями и бургер-меню */
+    }
+    
        nav {
         display: none;
     }
 
     .burger-menu {
         display: flex;
+        margin-left: 5px;
     }
 
     .mobile-nav.show {
