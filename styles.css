@@ -101,6 +101,7 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
+/* Иконка бургер-меню */
 .burger-menu {
     display: none;
     flex-direction: column;
@@ -127,25 +128,24 @@ nav ul li a:hover {
     background-color: var(--primary);
     padding: 8px 10px;
     z-index: 999;
-    overflow-x: auto; /* Горизонтальная прокрутка */
-    white-space: nowrap; /* Запрет переноса */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: max-height 0.3s ease;
 
-    /* Скрываем полосы на мобилках, если надо */
-    -ms-overflow-style: none;  /* IE/Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-#mobileNav::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    /* Прокрутка по горизонтали */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
 }
 
 /* Показываем меню при активации */
 #mobileNav.show {
-    display: block;
+    display: flex;
 }
 
-/* Ссылки в строку */
+/* Ссылки */
 #mobileNav a {
     display: inline-block;
     color: white;
@@ -153,9 +153,9 @@ nav ul li a:hover {
     font-size: 14px;
     font-weight: 500;
     padding: 6px 12px;
-    margin-right: 8px;
     transition: background-color 0.2s ease;
     border-radius: 4px;
+    white-space: nowrap;
 }
 
 /* Наведение */
