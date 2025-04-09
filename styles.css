@@ -197,8 +197,12 @@ section:first-of-type {
 }
 
 #products {
-    margin-top: 30; /* Убираем верхний отступ, чтобы уменьшить расстояние */
+    margin-top: 0; /* Убираем верхний отступ, чтобы уменьшить расстояние */
     margin-bottom: 40px;
+}
+
+#products .section-header {
+    margin-top: 20px; /* Добавляет пространство сверху заголовка */
 }
 
 .products {
