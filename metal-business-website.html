@@ -86,6 +86,7 @@
 <script>
     const burgerMenu = document.getElementById('burgerMenu');
     const mobileNav = document.getElementById('mobileNav');
+    const swipeZone = document.getElementById('swipeZone');
 
     burgerMenu.addEventListener('click', () => {
         mobileNav.classList.toggle('show');
@@ -93,18 +94,23 @@
 
     let startY = 0;
 
-    mobileNav.addEventListener('touchstart', (e) => {
+    swipeZone.addEventListener('touchstart', (e) => {
         startY = e.touches[0].clientY;
     });
 
-    mobileNav.addEventListener('touchend', (e) => {
+    swipeZone.addEventListener('touchend', (e) => {
         const endY = e.changedTouches[0].clientY;
         const deltaY = startY - endY;
 
-        if (deltaY > 30) { // теперь достаточно 30px
+        if (deltaY > 30) {
             mobileNav.classList.remove('show');
         }
     });
+
+    // Блокируем прокрутку внутри swipe-зоны
+    swipeZone.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+    }, { passive: false });
 </script>
 
 </body>
