@@ -70,44 +70,32 @@
     const mobileNav = document.getElementById("mobileNav");
 
     let lastScrollTop = 0;
+    let startY = 0;
 
-    // Открытие/закрытие мобильного меню
+    // --- Открытие/закрытие мобильного меню по клику ---
     burgerMenu.addEventListener("click", () => {
         mobileNav.classList.toggle("show");
     });
 
+    // --- Показ/скрытие хедера при скролле ---
     window.addEventListener("scroll", function () {
         let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
         const isMobileNavOpen = mobileNav.classList.contains("show");
 
         if (currentScroll <= 0) {
-            // В самом верху — всегда показываем хедер
-            header.classList.remove("hidden");
+            header.classList.remove("hidden"); // В самом верху всегда показываем хедер
         } else if (currentScroll > lastScrollTop) {
-            // Скролл вниз — скрываем хедер
-            header.classList.add("hidden");
+            header.classList.add("hidden"); // Скролл вниз — скрыть
         } else {
-            // Скролл вверх — показываем хедер, если меню закрыто
             if (!isMobileNavOpen) {
-                header.classList.remove("hidden");
+                header.classList.remove("hidden"); // Скролл вверх — показать, если меню закрыто
             }
         }
 
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
-</script>
 
-<script>
-    const burgerMenu = document.getElementById('burgerMenu');
-    const mobileNav = document.getElementById('mobileNav');
-
-    burgerMenu.addEventListener('click', () => {
-        mobileNav.classList.toggle('show');
-    });
-
-    // Свайп вверх
-    let startY = 0;
-
+    // --- Свайп вверх для закрытия мобильного меню ---
     mobileNav.addEventListener('touchstart', (e) => {
         startY = e.touches[0].clientY;
     });
