@@ -139,10 +139,9 @@ nav ul li a:hover {
     white-space: nowrap;
 }
 
-/* Показ меню */
 #mobileNav.show {
-    max-height: 200px; /* или больше при необходимости */
-    padding: 8px 10px;
+    max-height: 250px; /* чуть больше */
+    padding: 8px 10px 40px; /* добавили снизу 40px */
 }
 
 /* Ссылки */
