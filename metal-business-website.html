@@ -81,12 +81,28 @@
         });
     </script>
 
-	<script>
+<script>
     const burgerMenu = document.getElementById('burgerMenu');
     const mobileNav = document.getElementById('mobileNav');
 
     burgerMenu.addEventListener('click', () => {
         mobileNav.classList.toggle('show');
+    });
+
+    // Свайп вверх
+    let startY = 0;
+
+    mobileNav.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+    });
+
+    mobileNav.addEventListener('touchend', (e) => {
+        const endY = e.changedTouches[0].clientY;
+        const deltaY = startY - endY;
+
+        if (deltaY > 50) {
+            mobileNav.classList.remove('show');
+        }
     });
 </script>
 
