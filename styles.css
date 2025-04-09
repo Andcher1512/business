@@ -139,6 +139,7 @@ nav ul li a:hover {
     white-space: nowrap;
 }
 
+/* Показ меню */
 #mobileNav.show {
     max-height: 200px; /* или больше при необходимости */
     padding: 8px 10px;
@@ -160,16 +161,6 @@ nav ul li a:hover {
 /* Наведение */
 #mobileNav a:hover {
     background-color: rgba(255, 255, 255, 0.15);
-}
-
-#swipeZone {
-    position: absolute;
-    top: calc(80px + 200px); /* ниже mobileNav (80px + высота меню) */
-    left: 0;
-    width: 100%;
-    height: 50px;
-    z-index: 998;
-    touch-action: none; /* отключает прокрутку */
 }
 
 section {
