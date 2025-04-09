@@ -359,7 +359,7 @@ section:first-of-type {
 }
 
 #contact .section-header h2 {
-    margin-top: 25px; /* Добавляет пространство сверху заголовка */
+    margin-top: 20px; /* Добавляет пространство сверху заголовка */
 }
 
 .contact-info {
