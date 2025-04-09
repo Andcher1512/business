@@ -71,21 +71,23 @@
 
     let lastScrollTop = 0;
 
-    // Показ / скрытие мобильного меню
+    // Открытие/закрытие мобильного меню
     burgerMenu.addEventListener("click", () => {
         mobileNav.classList.toggle("show");
     });
 
-    window.addEventListener("scroll", function() {
+    window.addEventListener("scroll", function () {
         let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
         const isMobileNavOpen = mobileNav.classList.contains("show");
 
-        if (currentScroll > lastScrollTop) {
+        if (currentScroll <= 0) {
+            // В самом верху — всегда показываем хедер
+            header.classList.remove("hidden");
+        } else if (currentScroll > lastScrollTop) {
             // Скролл вниз — скрываем хедер
             header.classList.add("hidden");
         } else {
-            // Скролл вверх — показываем хедер ТОЛЬКО если меню закрыто
+            // Скролл вверх — показываем хедер, если меню закрыто
             if (!isMobileNavOpen) {
                 header.classList.remove("hidden");
             }
