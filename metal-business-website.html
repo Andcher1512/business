@@ -64,23 +64,36 @@
 	 
 </header>
 
-    <script>
-        let lastScrollTop = 0;
-        const header = document.getElementById("header");
+<script>
+    const header = document.getElementById("header");
+    const burgerMenu = document.getElementById("burgerMenu");
+    const mobileNav = document.getElementById("mobileNav");
 
-        window.addEventListener("scroll", function() {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    let lastScrollTop = 0;
 
-            if (currentScroll > lastScrollTop) {
-                // Скролл вниз — скрываем хеддер
-                header.classList.add("hidden");
-            } else {
-                // Скролл вверх — показываем хеддер
+    // Показ / скрытие мобильного меню
+    burgerMenu.addEventListener("click", () => {
+        mobileNav.classList.toggle("show");
+    });
+
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        const isMobileNavOpen = mobileNav.classList.contains("show");
+
+        if (currentScroll > lastScrollTop) {
+            // Скролл вниз — скрываем хедер
+            header.classList.add("hidden");
+        } else {
+            // Скролл вверх — показываем хедер ТОЛЬКО если меню закрыто
+            if (!isMobileNavOpen) {
                 header.classList.remove("hidden");
             }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для того чтобы не заходить за пределы
-        });
-    </script>
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+</script>
 
 <script>
     const burgerMenu = document.getElementById('burgerMenu');
