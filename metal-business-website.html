@@ -89,7 +89,6 @@
         mobileNav.classList.toggle('show');
     });
 
-    // Свайп вверх
     let startY = 0;
 
     mobileNav.addEventListener('touchstart', (e) => {
@@ -100,7 +99,7 @@
         const endY = e.changedTouches[0].clientY;
         const deltaY = startY - endY;
 
-        if (deltaY > 50) {
+        if (deltaY > 30) { // теперь достаточно 30px
             mobileNav.classList.remove('show');
         }
     });
