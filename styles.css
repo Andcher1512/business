@@ -193,10 +193,11 @@ section:first-of-type {
     max-width: 1500px;
     height: 450px;
     margin: 0 auto;
+    margin-bottom: 30px; /* Уменьшаем расстояние между картой и следующей секцией */
 }
 
 #products {
-    margin-top: 30px;
+    margin-top: 0; /* Убираем верхний отступ, чтобы уменьшить расстояние */
     margin-bottom: 40px;
 }
 
