@@ -344,6 +344,24 @@ section:first-of-type {
     margin-bottom: 10px;
 }
 
+.about-img {
+    flex: 1 1 400px;
+    min-width: 280px;
+    text-align: center;
+}
+
+.about-img img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-img img:hover {
+    transform: scale(1.05);
+}
+
 #contact .section-header h2 {
     margin-top: 20px; /* Добавляет пространство сверху заголовка */
 }
