@@ -270,7 +270,7 @@ section:first-of-type {
 .about-section {
     position: relative;
     padding: 30px 10px;
-    background: url('path/2e0d74506a3205e8d7b2dcd83000c6c2.jpg') no-repeat center center/cover; /* Замените на путь к вашему фону */
+    background: url('photo/simple-cool-shiny-metallic-effect-background-free-photo.jpg') no-repeat center center/cover; /* Замените на путь к вашему фону */
     color: #333;
     overflow: hidden;
 }
