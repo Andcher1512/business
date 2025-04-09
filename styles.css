@@ -118,29 +118,31 @@ nav ul li a:hover {
     border-radius: 1px;
 }
 
-/* Мобильное меню — скрыто по умолчанию */
+/* Мобильное меню */
 #mobileNav {
-    display: none;
     position: absolute;
     top: 80px;
     left: 0;
     width: 100%;
+    max-height: 0;
+    overflow: hidden;
     background-color: var(--primary);
-    padding: 8px 10px;
+    padding: 0 10px;
     z-index: 999;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease, padding 0.3s ease;
 
-    overflow-x: auto;
-    white-space: nowrap;
+    display: flex;
     gap: 10px;
     justify-content: center;
     align-items: center;
+    white-space: nowrap;
 }
 
-/* Показываем меню при активации */
+/* Показ меню */
 #mobileNav.show {
-    display: flex;
+    max-height: 200px; /* или больше при необходимости */
+    padding: 8px 10px;
 }
 
 /* Ссылки */
@@ -159,17 +161,6 @@ nav ul li a:hover {
 /* Наведение */
 #mobileNav a:hover {
     background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* Бургер на мобилках */
-@media (max-width: 768px) {
-    .burger-menu {
-        display: flex;
-    }
-
-    nav ul {
-        display: none;
-    }
 }
 
 section {
