@@ -101,6 +101,56 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
+#mobileNav {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary);
+    padding: 6px 10px;
+    z-index: 999;
+    overflow-y: auto;
+    max-height: 80vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.3s ease;
+
+    /* Добавим выравнивание по центру */
+    text-align: center;
+}
+
+#mobileNav a {
+    display: block; /* было inline-block */
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 8px;
+    margin: 6px 0; /* немного сверху-снизу, убрал справа */
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+}
+Теперь при открытии бургер-меню ссылки будут стоять ровно по центру, и выглядеть аккуратно на мобильных 📱
+
+Хочешь добавить ещё и плавное появление/исчезновение меню или иконку «крестик» при открытии?
+
+
+
+
+
+
+
+Вы сказали:
+а теперь полный этот блок
+
+
+ChatGPT сказал:
+Вот полный CSS-блок для бургер-меню с выравниванием ссылок по центру — адаптирован для мобильной навигации, с плавным раскрытием и аккуратным внешним видом:
+
+css
+Копировать
+Редактировать
+/* Иконка бургер-меню */
 .burger-menu {
     display: none;
     flex-direction: column;
@@ -117,6 +167,7 @@ nav ul li a:hover {
     border-radius: 1px;
 }
 
+/* Мобильное меню */
 #mobileNav {
     display: none;
     position: absolute;
@@ -130,24 +181,30 @@ nav ul li a:hover {
     max-height: 80vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: max-height 0.3s ease;
+    
+    /* Центровка текста */
+    text-align: center;
 }
 
+/* Показываем меню при активации */
 #mobileNav.show {
     display: block;
 }
 
+/* Ссылки внутри меню */
 #mobileNav a {
-    display: inline-block;
+    display: block; /* Чтобы можно было выровнять по центру */
     color: white;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    padding: 4px 8px;
-    margin-right: 6px;
+    padding: 6px 8px;
+    margin: 6px 0;
     transition: background-color 0.2s ease;
     border-radius: 4px;
 }
 
+/* Эффект при наведении */
 #mobileNav a:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
