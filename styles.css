@@ -270,10 +270,28 @@ section:first-of-type {
     margin-right: 5px;
 }
 
+.about-section {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f2f4f8 0%, #d9e7f5 100%);
+    color: #333;
+    overflow: hidden;
+}
+
+.about-overlay {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
 .about-title {
     font-size: 36px;
     font-family: 'Playfair Display', serif;
     color: #e63946;
+    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -284,7 +302,8 @@ section:first-of-type {
     font-weight: 600;
     color: #005f9e;
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 auto 50px;
+    text-align: center;
 }
 
 .about-content {
@@ -292,15 +311,12 @@ section:first-of-type {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: left;
+    gap: 40px;
 }
 
 .about-text {
-    flex: 1;
-    min-width: 300px;
+    flex: 1 1 400px;
+    min-width: 280px;
 }
 
 .about-text h3 {
@@ -310,25 +326,38 @@ section:first-of-type {
     margin-bottom: 15px;
 }
 
+.about-text p {
+    font-size: 18px;
+    font-family: 'Lora', serif;
+    margin-bottom: 10px;
+}
+
 .about-text ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .about-text li {
     font-size: 18px;
     font-family: 'Lora', serif;
     line-height: 1.6;
-    padding-left: 30px;
+    padding-left: 28px;
     position: relative;
     margin-bottom: 10px;
+}
+
+.about-img {
+    flex: 1 1 400px;
+    min-width: 280px;
+    text-align: center;
 }
 
 .about-img img {
     width: 100%;
     max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -462,6 +491,22 @@ footer {
 
     .products {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-title {
+        font-size: 30px;
+    }
+
+    .about-description {
+        font-size: 18px;
+    }
+
+    .about-text h3 {
+        font-size: 24px;
+    }
+
+    .about-text li {
+        font-size: 16px;
     }
 }
 
