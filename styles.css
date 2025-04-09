@@ -118,7 +118,7 @@ nav ul li a:hover {
     border-radius: 1px;
 }
 
-/* Мобильное меню */
+/* Мобильное меню — скрыто по умолчанию */
 #mobileNav {
     display: none;
     position: absolute;
@@ -131,13 +131,11 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: max-height 0.3s ease;
 
-    /* Прокрутка по горизонтали */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow-x: auto;
     white-space: nowrap;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Показываем меню при активации */
@@ -161,6 +159,17 @@ nav ul li a:hover {
 /* Наведение */
 #mobileNav a:hover {
     background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Бургер на мобилках */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+    }
 }
 
 section {
