@@ -196,6 +196,7 @@ section:first-of-type {
 }
 
 #products {
+    margin-top: 30px;
     margin-bottom: 40px;
 }
 
@@ -204,10 +205,6 @@ section:first-of-type {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 0 20px;
-}
-
-#contact .section-header h2 {
-    margin-top: 30px; /* Добавляет пространство сверху заголовка */
 }
 
 .product-card {
@@ -358,6 +355,10 @@ section:first-of-type {
 
 .about-img img:hover {
     transform: scale(1.05);
+}
+
+#contact .section-header h2 {
+    margin-top: 30px; /* Добавляет пространство сверху заголовка */
 }
 
 .contact-info {
