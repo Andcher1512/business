@@ -153,8 +153,10 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 10px 0;
+    padding: 20px 0;
+    margin-top: -50px; /* Подняли секцию вверх */
 }
+
 
 .section-header {
     text-align: center;
