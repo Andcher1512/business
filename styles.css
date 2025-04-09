@@ -156,6 +156,10 @@ section {
     padding: 20px 0;
 }
 
+section:first-of-type {
+    margin-top: 80px;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 10px;
