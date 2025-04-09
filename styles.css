@@ -206,6 +206,10 @@ section:first-of-type {
     padding: 0 20px;
 }
 
+#contact .section-header h2 {
+    margin-top: 30px; /* Добавляет пространство сверху заголовка */
+}
+
 .product-card {
     background-color: white;
     border-radius: 8px;
