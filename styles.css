@@ -272,7 +272,7 @@ section:first-of-type {
 
 .about-section {
     position: relative;
-    padding: 50px 10px;
+    padding: 30px 10px;
     background: linear-gradient(135deg, #f2f4f8 0%, #d9e7f5 100%);
     color: #333;
     overflow: hidden;
