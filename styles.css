@@ -140,8 +140,8 @@ nav ul li a:hover {
 }
 
 #mobileNav.show {
-    max-height: 250px; /* чуть больше */
-    padding: 8px 10px 40px; /* добавили снизу 40px */
+    max-height: 200px; /* или больше при необходимости */
+    padding: 8px 10px;
 }
 
 /* Ссылки */
