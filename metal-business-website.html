@@ -83,15 +83,14 @@
     </script>
 
 <script>
-    const burgerMenu = document.querySelector('.burger-menu');
+    const burgerMenu = document.getElementById('burgerMenu');
     const mobileNav = document.getElementById('mobileNav');
 
-    // Открытие/закрытие по нажатию на иконку
     burgerMenu.addEventListener('click', () => {
         mobileNav.classList.toggle('show');
     });
 
-    // Детектируем свайп вверх
+    // Свайп вверх
     let startY = 0;
 
     mobileNav.addEventListener('touchstart', (e) => {
@@ -99,10 +98,10 @@
     });
 
     mobileNav.addEventListener('touchend', (e) => {
-        let endY = e.changedTouches[0].clientY;
-        let deltaY = startY - endY;
+        const endY = e.changedTouches[0].clientY;
+        const deltaY = startY - endY;
 
-        if (deltaY > 50) { // свайп вверх более чем на 50px
+        if (deltaY > 50) {
             mobileNav.classList.remove('show');
         }
     });
