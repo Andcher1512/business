@@ -59,8 +59,7 @@
         <a href="#products">Продукция</a>
         <a href="#about">О нас</a>
         <a href="#contact">Контакты</a>
-    </div>
-	<div id="swipeZone"></div>
+    </div>	
 </div>
 	 
 </header>
@@ -84,33 +83,29 @@
     </script>
 
 <script>
-    const burgerMenu = document.getElementById('burgerMenu');
+    const burgerMenu = document.querySelector('.burger-menu');
     const mobileNav = document.getElementById('mobileNav');
-    const swipeZone = document.getElementById('swipeZone');
 
+    // Открытие/закрытие по нажатию на иконку
     burgerMenu.addEventListener('click', () => {
         mobileNav.classList.toggle('show');
     });
 
+    // Детектируем свайп вверх
     let startY = 0;
 
-    swipeZone.addEventListener('touchstart', (e) => {
+    mobileNav.addEventListener('touchstart', (e) => {
         startY = e.touches[0].clientY;
     });
 
-    swipeZone.addEventListener('touchend', (e) => {
-        const endY = e.changedTouches[0].clientY;
-        const deltaY = startY - endY;
+    mobileNav.addEventListener('touchend', (e) => {
+        let endY = e.changedTouches[0].clientY;
+        let deltaY = startY - endY;
 
-        if (deltaY > 30) {
+        if (deltaY > 50) { // свайп вверх более чем на 50px
             mobileNav.classList.remove('show');
         }
     });
-
-    // Блокируем прокрутку внутри swipe-зоны
-    swipeZone.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-    }, { passive: false });
 </script>
 
 </body>
