@@ -152,11 +152,10 @@ nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-section {
-    padding: 20px 0;
-    margin-top: -50px; /* Подняли секцию вверх */
+.section-header {
+    text-align: center;
+    margin: -50px 0 10px;
 }
-
 
 .section-header {
     text-align: center;
