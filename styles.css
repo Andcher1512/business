@@ -183,12 +183,17 @@ section:first-of-type {
 }
 
 .section-header-text {
-    font-size: 16px; /* или тот, что был у <p> */
+    font-size: 16px;
     font-family: inherit;
     font-weight: normal;
     line-height: 1.6;
     margin-top: 10px;
-    color: #333; /* или нужный цвет */
+    color: var(--gray);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 .section-header p {
